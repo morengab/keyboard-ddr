@@ -29,37 +29,48 @@
 <body>
 	<div id="container">	
 		<section class="container" id="main">		
-				<div class="four columns alpha" id="left-col">Score</div>
-				<div class="twelve columns omega" id="main-col">
-					
-					<div class="row" id="top-row">
+			<div class="four columns alpha" id="left-col">
+				<div class="score">
+					<span class="points">100,000</span> points
+				</div>	
+				<div class="current-software"></div>
+				<h2>Photoshop</h2>
+			</div>
 
-						<div id="lifebar">
-							<div id="lifebar-scale">lifebar</div>
-						</div>
+			<div class="twelve columns omega" id="main-col">
 
-						<div class="two columns alpha" id="col1">
-							<img src="" alt="" width="100" height="100">
-						</div>
-						<div class="two columns" id="col2">B</div>
-						<div class="two columns" id="col3">C</div>
-						<div class="two columns omega" id="col4">D</div>
+				<div class="row" id="top-row">
+
+					<div id="lifebar">
+						<div id="lifebar-scale">lifebar</div>
 					</div>
-					<div class="row" id="board">
-						<div class="two columns alpha" id="col1-board"></div>
-						<div class="two columns" id="col2-board"></div>
-						<div class="two columns" id="col3-board"></div>
-						<div class="two columns omega" id="col4-board"></div>
+
+					<div class="two columns alpha" id="col1">
+						<div class="icon"></div>
 					</div>
-					
-					
-					
-					
+					<div class="two columns" id="col2">
+						<div class="icon"></div>
+					</div>
+					<div class="two columns" id="col3">
+						<div class="icon"></div>
+					</div>
+					<div class="two columns omega" id="col4">
+						<div class="icon"></div>
+					</div>
 				</div>
+				<div class="row" id="board">
+					<div class="two columns alpha" id="col1-board">haiii</div>
+					<div class="two columns" id="col2-board"></div>
+					<div class="two columns" id="col3-board"></div>
+					<div class="two columns omega" id="col4-board"></div>
+				</div>
+
+			</div>
 		</section><!-- /main -->		
 		<footer>
 		</footer><!-- /footer -->
 	</div><!--!/#container -->
+
 	<!-- !Javascript - at the bottom for fast page loading -->
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
