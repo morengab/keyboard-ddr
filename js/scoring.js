@@ -29,6 +29,7 @@ function scoreAnswer(isAnswerCorrect) {
 // correct answer? add to score, add to streak, add to multiplier, add life
 function scoreCorrectAnswer() {
 	score += SCORE_INCREMENT * scoreMultiplier;
+	$j(".points").html(score);
 	updateLife(LIFE_INCREMENT);
 	scoreStreak++;
 	updateMultiplier();
@@ -61,6 +62,7 @@ function resetScoring() {
 
 function resetScore() {
 	score = 0;
+	$j(".points").html(score);
 }
 
 function resetMultiplier() {
