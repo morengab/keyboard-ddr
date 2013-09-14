@@ -135,8 +135,6 @@ Icon.prototype.setKeyMap = function () {
 			console.log("PRESSED");
 			$j("#" + el.uniq).addClass("press");
 			el.state = 0;
-			scoreCorrectAnswer();
-			debugScoring();
 		}
 	});	
 
