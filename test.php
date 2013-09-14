@@ -44,9 +44,6 @@
 						<div class="two columns omega" id="col4-board"></div>
 					</div>
 					
-					
-					
-					
 				</div>
 		</section><!-- /main -->		
 		<footer>
