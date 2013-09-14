@@ -2,7 +2,16 @@
  * GLOBAL VARS *
  ***************/
 
+//colors
+@LIGHT_BLUE: rgba(93, 165, 212, 1.0);
+@MEDIUM_BLUE: rgba(35, 83, 115, 1.0);
+@DARK_BLUE: rgba(13, 33, 54, 1.0);
+@FONT_COLOR: rgba(194, 222, 230, 0.9);
+
 @COL_HEIGHT: 600px;
+
+//fonts
+@MAIN_FONT: 'Open Sans Condensed', sans-serif;
 
 //header 
 @HEADER_HEIGHT: 50px;
@@ -18,9 +27,6 @@
 //lifebar
 @LIFEBOARD_HEIGHT: 30px;
 @LIFEBAR_OPACITY: .4;
-@LIFEBAR_SCALE_COLOR: rgba(93, 165, 212, 1.0);
-@LIFEBAR_BORDER_COLOR: rgba(35, 83, 115, 1.0);
-@LIFEBAR_BKGD_COLOR: rgba(13, 33, 54, 1.0);
 
 //rounding 
 @CORNER_RADIUS: 15px;
@@ -31,7 +37,7 @@
 @ICON_HEIGHT: 100px;
 
 html { 
-    background: url(images/bg.jpg) no-repeat center center fixed; 
+    background: url('../icons/testbackground-1.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -39,8 +45,8 @@ html {
 }
 
 body {
-    background: black;
-    color: white;
+    color: @FONT_COLOR;
+    font-family: @MAIN_FONT;
 }
 
 #main {
@@ -53,38 +59,44 @@ body {
 
 #main-col {
     margin-top: @HEADER_MARGIN_TOP;
-        background: black url('../icons/office.png') repeat;
+    background: rgba(0, 0, 0, 0.1);//rgba(39, 43, 46, 0.5);
 }
 
 .score {
-    height: @HEADER_HEIGHT;
+    height: @LIFEBOARD_HEIGHT;
+    margin-bottom: 80px;
+    .points {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 900;
+        font-size: 3em;
+    }
 }
 
 .current-software {
     img {
         width: 200px;
         height: 200px;
-    }
+    }    
 }
 
 #lifebar {
     width: 100%;
     height: @LIFEBOARD_HEIGHT;
-    background-color: @LIFEBAR_BKGD_COLOR;
-    border: 1px solid @LIFEBAR_BORDER_COLOR;
+    background-color: @DARK_BLUE;
+    border: 1px solid @MEDIUM_BLUE;
 }
 
 #lifebar-scale {
     width: 50%;
-    height: @HEADER_HEIGHT;
-    background: @LIFEBAR_SCALE_COLOR;
+    height: @LIFEBOARD_HEIGHT;
+    background: @LIGHT_BLUE;
     opacity: @LIFEBAR_OPACITY;
     transition: opacity @ANIM_TIME ease-in, width .3s ease-in;
 
     &:hover {
         opacity: 1.0;
         cursor: pointer;
-        width: 75%;
+        width: 55%;
     }
 }
 
@@ -108,4 +120,17 @@ body {
     -moz-border-radius: @radius;
     -khtml-border-radius: @radius;
     -webkit-border-radius: @radius;
+}
+
+.button {
+    width: 100px;
+    height: 40px;
+    color: @FONT_COLOR;
+    background-color: @MEDIUM_BLUE;
+    font-family: @MAIN_FONT;
+    font-size: 18px;
+    border: 1px solid #666;
+    &:hover {
+        //background
+    }    
 }
