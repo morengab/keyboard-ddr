@@ -88,6 +88,7 @@ Icon.prototype.animate = function () {
 		"top" : "-500"	
 		}, this.speed, function () {
 		
+		$j(this.icon).remove();
 		
 	});
 	
