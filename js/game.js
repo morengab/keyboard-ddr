@@ -3,7 +3,7 @@ jQuery.fx.interval = 5;
 var speed = 5000;
 var height = 800;
 var width = 200;
-var beat = 800;
+var beat = 1200;
 $j(document).ready(function () {
 
 	//create game objects
@@ -56,9 +56,12 @@ Game.prototype.animate = function(current) {
 					$j(this).addClass("active");
 					self.setActive();
 				}
-				if (parseInt(pos.top) <= 0 && self.state == 0)
+				if (parseInt(pos.top) <= 0 && self.state != 2)
 				{
-					//missed!
+					// missed!
+					scoreWrongAnswer();
+					self.state = 2;
+					debugScoring();
 				}
 			
 			}	
@@ -134,7 +137,9 @@ Icon.prototype.setKeyMap = function () {
 		{
 			console.log("PRESSED");
 			$j("#" + el.uniq).addClass("press");
-			el.state = 0;
+			el.state = 2;
+			scoreCorrectAnswer();
+			debugScoring();
 		}
 	});	
 

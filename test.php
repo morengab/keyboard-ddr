@@ -33,7 +33,7 @@
 		<section class="container" id="main">		
 			<div class="four columns alpha" id="left-col">
 				<div class="score">
-					<span class="points">100,000</span> points
+					<span class="points">0</span> points
 				</div>
 				<div class="current-software">
 					<img src="icons/software-icon.png">
@@ -83,6 +83,7 @@
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script>!window.jQuery && document.write('<script src=//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"><\/script>')</script>
+	<script src="js/scoring.js"></script>
 	<script src="js/hotkeys.js"></script>
 	<script src="js/jquery.jplayer.min.js"></script>
 	<script src="js/game.js"></script>
