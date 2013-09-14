@@ -14,11 +14,12 @@
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0">
 	<!-- !CSS -->
-	<link rel="stylesheet" href="css/style.css?v=1">
+	<link rel="stylesheet/less" text="text/css" href="css/normalize.less">
+	<link rel="stylesheet/less" text="text/css" href="css/base.less">
 	<!-- Uncomment if you are specifically targeting less enabled mobile browsers
 	<link rel="stylesheet" media="handheld" href="css/handheld.css?v=1">  -->
 	<!-- !Modernizr - All other JS at bottom -->
-	<script src="js/modernizr-1.5.min.js"></script>
+	<script src="js/less.js" type="text/javascript"></script>
 </head>
 <!-- !Body -->
 <body>
