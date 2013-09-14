@@ -16,6 +16,7 @@
 	<!-- !CSS -->
 	<link rel="stylesheet/less" text="text/css" href="css/normalize.less">
 	<link rel="stylesheet/less" text="text/css" href="css/matt-base.less">
+	<link rel="stylesheet/less" text="text/css" href="css/base.less">
 	<!-- Uncomment if you are specifically targeting less enabled mobile browsers
 	<link rel="stylesheet" media="handheld" href="css/handheld.css?v=1">  -->
 	<!-- !Modernizr - All other JS at bottom -->
@@ -28,11 +29,18 @@
 <body>
 	<div id="container">	
 		<section class="container" id="main">		
-				<div class="four columns alpha" id="left-col">A</div>
+				<div class="four columns alpha" id="left-col">Score</div>
 				<div class="twelve columns omega" id="main-col">
 					
 					<div class="row" id="top-row">
-						<div class="two columns alpha" id="col1">A</div>
+
+						<div id="lifebar">
+							<div id="lifebar-scale">lifebar</div>
+						</div>
+
+						<div class="two columns alpha" id="col1">
+							<img src="" alt="" width="100" height="100">
+						</div>
 						<div class="two columns" id="col2">B</div>
 						<div class="two columns" id="col3">C</div>
 						<div class="two columns omega" id="col4">D</div>
