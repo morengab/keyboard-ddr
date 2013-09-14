@@ -1,21 +1,26 @@
 /***************
  * GLOBAL VARS *
  ***************/
- 
- @COL_HEIGHT: 600px;
+
+@COL_HEIGHT: 600px;
 
 //header 
 @HEADER_HEIGHT: 50px;
 @HEADER_MARGIN_TOP: 20px;
 
 //board 
-@BOARD_HEIGHT: 550px;
+@WINDOW_HEIGHT: `window.innerHeight`;
+@BOARD_HEIGHT: 550px;//~"@{WINDOW_HEIGHT}px";
 
 //animation
 @ANIM_TIME: 0.3s;
 
 //lifebar
+@LIFEBOARD_HEIGHT: 30px;
 @LIFEBAR_OPACITY: .4;
+@LIFEBAR_SCALE_COLOR: rgba(93, 165, 212, 1.0);
+@LIFEBAR_BORDER_COLOR: rgba(35, 83, 115, 1.0);
+@LIFEBAR_BKGD_COLOR: rgba(13, 33, 54, 1.0);
 
 //rounding 
 @CORNER_RADIUS: 15px;
@@ -25,20 +30,30 @@
 @ICON_WIDTH: 100px;
 @ICON_HEIGHT: 100px;
 
+html { 
+    background: url(images/bg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    background: black;
+    color: white;
+}
+
 #main {
-	background: #FEFEFE;
+
 }
 
 #left-col {
-	background: green;
-    height: @COL_HEIGHT;
     margin-top: @HEADER_MARGIN_TOP;
 }
 
 #main-col {
-	background: green;
-    height: @COL_HEIGHT;
     margin-top: @HEADER_MARGIN_TOP;
+        background: black url('../icons/office.png') repeat;
 }
 
 .score {
@@ -46,8 +61,6 @@
 }
 
 .current-software {
-    height: @BOARD_HEIGHT;
-
     img {
         width: 200px;
         height: 200px;
@@ -56,15 +69,15 @@
 
 #lifebar {
     width: 100%;
-    height: @HEADER_HEIGHT;
-    background-color: grey;
-    //margin-bottom: 10px;
+    height: @LIFEBOARD_HEIGHT;
+    background-color: @LIFEBAR_BKGD_COLOR;
+    border: 1px solid @LIFEBAR_BORDER_COLOR;
 }
 
 #lifebar-scale {
     width: 50%;
     height: @HEADER_HEIGHT;
-    background: red;
+    background: @LIFEBAR_SCALE_COLOR;
     opacity: @LIFEBAR_OPACITY;
     transition: opacity @ANIM_TIME ease-in, width .3s ease-in;
 
