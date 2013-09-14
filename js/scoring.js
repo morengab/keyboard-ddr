@@ -50,6 +50,7 @@ function updateLife(amount) {
 function updateMultiplier(){
 	if ( (scoreStreak > 0) && (scoreStreak % MULTIPLIER_INCREMENT === 0) && (scoreMultiplier < MAX_MULTIPLIER) ) {
 		scoreMultiplier++;
+		$j(".scoreMultiplier").html(scoreMultiplier);
 	}
 }
 
@@ -67,6 +68,7 @@ function resetScore() {
 
 function resetMultiplier() {
 	scoreMultiplier = 1;
+	$j(".scoreMultiplier").html(scoreMultiplier);
 }
 
 function resetStreak() {

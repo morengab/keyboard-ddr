@@ -33,7 +33,12 @@
 		<section class="container" id="main">		
 			<div class="four columns alpha" id="left-col">
 				<div class="score">
-					<span class="points">0</span> points
+					<div>
+						<span class="points">0</span> points
+					</div>
+					<div>
+						<span class="scoreMultiplier">1</span>x multiplier
+					</div>
 				</div>
 				<div class="current-software" id="buttons">
 					<img src="icons/software-icon.png">
