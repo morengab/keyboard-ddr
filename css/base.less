@@ -1,11 +1,17 @@
 /***************
  * GLOBAL VARS *
  ***************/
+ 
+ @COL_HEIGHT: 600px;
 
 //header 
 @HEADER_HEIGHT: 50px;
+@HEADER_MARGIN_TOP: 20px;
 
- // animation
+//board 
+@BOARD_HEIGHT: 550px;
+
+//animation
 @ANIM_TIME: 0.3s;
 
 //lifebar
@@ -25,10 +31,14 @@
 
 #left-col {
 	background: green;
+    height: @COL_HEIGHT;
+    margin-top: @HEADER_MARGIN_TOP;
 }
 
 #main-col {
 	background: green;
+    height: @COL_HEIGHT;
+    margin-top: @HEADER_MARGIN_TOP;
 }
 
 .score {
@@ -36,18 +46,19 @@
 }
 
 .current-software {
-    width: 200px;
-    height: 200px;
-    background-image: url('../icons/software-icon.png');
-    background-size: 200px 200px;
+    height: @BOARD_HEIGHT;
 
+    img {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 #lifebar {
     width: 100%;
     height: @HEADER_HEIGHT;
     background-color: grey;
-    margin-bottom: 10px;
+    //margin-bottom: 10px;
 }
 
 #lifebar-scale {
