@@ -29,6 +29,9 @@
 	<div id="container">	
 		<section class="container" id="main">		
 				<div class="four columns alpha" id="left-col">A</div>
+				
+
+
 				<div class="twelve columns omega" id="main-col">B</div>
 		</section><!-- /main -->		
 		<footer>
