@@ -3,24 +3,24 @@ jQuery.fx.interval = 5;
 var speed = 5000;
 var height = 800;
 var width = 200;
-var beat = 800;
+var beat = 1000;
 $j(document).ready(function () {
 
 	//create game objects
 
 	
 	//create keyboard mapping
-	
+	$j("#start").on("click", function () {
 	//music
 	$j("#music").jPlayer({
 		ready: function () {
 			$j(this).jPlayer("setMedia", {
-				mp3: "/media/spacejam.mp3"
-			});
+				mp3: "media/spacejam.mp3"
+			}).jPlayer("play");
 		},
-		swfPath: "/js",
-
-	
+		swfPath: "js",
+		loop: true,
+		supplied: "mp3",
 	});
 	
 	
@@ -28,6 +28,10 @@ $j(document).ready(function () {
 	//set s3core
 	var game = new Game();
 	game.runGame();
+	
+	});
+	
+	
 });
 
 
@@ -56,9 +60,10 @@ Game.prototype.animate = function(current) {
 					$j(this).addClass("active");
 					self.setActive();
 				}
-				if (parseInt(pos.top) <= 0 && self.state == 0)
+				if (parseInt(pos.top) <= 10 && self.state == 0)
 				{
 					//missed!
+					self.state = 2;
 				}
 			
 			}	
