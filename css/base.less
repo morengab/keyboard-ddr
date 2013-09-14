@@ -1,12 +1,86 @@
+/***************
+ * GLOBAL VARS *
+ ***************/
+
+//header 
+@HEADER_HEIGHT: 50px;
+
+ // animation
+@ANIM_TIME: 0.3s;
+
+//lifebar
+@LIFEBAR_OPACITY: .4;
+
+//rounding 
+@CORNER_RADIUS: 15px;
+
+//icons
+@ICON_OPACITY: .8;
+@ICON_WIDTH: 100px;
+@ICON_HEIGHT: 100px;
+
 #main {
 	background: #FEFEFE;
 }
 
 #left-col {
-	background: #CCC;
+	background: green;
 }
 
-
 #main-col {
-	background: #EEE;
+	background: green;
+}
+
+.score {
+    height: @HEADER_HEIGHT;
+}
+
+.current-software {
+    width: 200px;
+    height: 200px;
+    background-image: url('../icons/software-icon.png');
+    background-size: 200px 200px;
+
+}
+
+#lifebar {
+    width: 100%;
+    height: @HEADER_HEIGHT;
+    background-color: grey;
+    margin-bottom: 10px;
+}
+
+#lifebar-scale {
+    width: 50%;
+    height: @HEADER_HEIGHT;
+    background: red;
+    opacity: @LIFEBAR_OPACITY;
+    transition: opacity @ANIM_TIME ease-in, width .3s ease-in;
+
+    &:hover {
+        opacity: 1.0;
+        cursor: pointer;
+        width: 75%;
+    }
+}
+
+.icon {
+    background-image: url('../icons/ps_arrow.png'); 
+    width: @ICON_WIDTH;
+    height: @ICON_HEIGHT;
+    opacity: @ICON_OPACITY;
+    transition: opacity @ANIM_TIME ease-in;
+    .rounded-corners;
+    
+    &:hover {
+        opacity: 1.0;
+        cursor: pointer;
+    }
+}
+
+.rounded-corners(@radius:@CORNER_RADIUS) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -khtml-border-radius: @radius;
+    -webkit-border-radius: @radius;
 }

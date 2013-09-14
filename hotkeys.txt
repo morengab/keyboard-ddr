@@ -1,0 +1,25 @@
+Photoshop
+
+w - wand
+e - eraser
+r - blur
+t - type
+u - shape tool
+i - eyedropper
+p - pen tool
+[ - brush size decrease
+] - brush size increase
+g - gradient
+h - hand tool
+j - healing brush
+l - lasso
+z - zoom
+c - crop
+v - move
+b - brush
+m -marquee
+
+ctrl+alt+z - step backward
+ctrl+s - save
+ctrl+alt+shift+s - save for web
+ctrl+shift+i - invert selection
