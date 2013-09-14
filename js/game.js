@@ -1,5 +1,7 @@
 $j = jQuery.noConflict();
 
+var speed = 6000;
+
 $j(document).ready(function () {
 
 	//create game objects
@@ -9,22 +11,70 @@ $j(document).ready(function () {
 	
 	
 	//set score
-	setInterval(runGame, 1000);
+	var game = new Game();
+	game.runGame();
 });
 
 
 function Game() {
-	
-	GAMESTATE = 0;
-	
-	
-
+	//parameters
+	//icons being used
+	//
 }
 
+
+Game.prototype.animate = function(current) {
+	var self = current;
+	$j(current.icon).animate({
+		"top" : "-100"	
+		}, {
+			easing: "linear",
+			duration: speed,
+			complete: function () {
+				 $j(this).remove();
+				 current.removeKeyMap();
+			},
+			step: function(now, fx) {
+				var pos = $j(fx.elem).position();
+				if (parseInt(pos.top) <= 80 && self.state == 0)
+				{
+					$j(this).addClass("active");
+					self.setActive();
+				}
+				if (parseInt(pos.top) <= 0 && self.state == 0)
+				{
+					//missed!
+				}
+			
+			}	
+			
+		});		
+		 
+		
+}
+
+
+
+
+Game.prototype.runGame = function () {
+		var self = this;
+		setInterval(function () {self.setLoop()}, 2000);
+}
+
+Game.prototype.setLoop = function () {
+	
+		var leftpos = [0, 120, 240, 360];
+		var setRandom = Math.ceil(Math.random()*4);
+		var icon = new Icon("Ctrl+S", "Save");
+		icon.setKeyMap();
+		icon.draw(leftpos[setRandom], 800);
+		this.animate(icon);
+	
+}
 	
 //assign icons
 function Icon(keymap, label) {
-	this.uniq = "uniqueid";
+	this.uniq = new Date().getUTCMilliseconds();
 	//Ctrl+S
 	this.keymap = keymap;
 	
@@ -40,34 +90,30 @@ function Icon(keymap, label) {
 	
 	this.value = 10;
 	this.value_neg = -5;
-	this.speed = 6000;
 	this.icon = 0;
 }
 
 
+
 Icon.prototype.setKeyMap = function () {
 	var el = this;
-	$j(document).bind("keypress", this.keymap, function (event) 	{
-		console.log("PRESSED KEY " + el.keymap + el.label);
-		$j("#" + el.uniq).addClass("press");
+	$j(document).bind("keypress", el.keymap, function () {
+		if (el.state == 1)
+		{
+			console.log("PRESSED");
+			$j("#" + el.uniq).addClass("press");
+			el.state = 0;
+		}
 	});	
+
 }
 
-Icon.prototype.setPosition = function(x, y) {
-	
-	this.positionX = x;
-	this.positionY = y;
-	
-	console.log(this.positionX);
-	
-}
 
 Icon.prototype.removeKeyMap = function () {
-	var el = this;
-	$j(document).unbind("keypress", this.keymap);
+	this.state = 0;
 }
 
-Icon.prototype.draw = function () {
+Icon.prototype.draw = function (x, y) {
 	
 	var icon_item = $j("<div/>", {
 		id: this.uniq,
@@ -76,33 +122,17 @@ Icon.prototype.draw = function () {
 	
 	icon_item.html(this.label);
 	
-	icon_item.css("left", this.positionX + "px");
-	icon_item.css("top", this.positionY + "px");
+	icon_item.css("left", x + "px");
+	icon_item.css("top", y + "px");
 	this.icon = icon_item;
 	$j("#board").append(icon_item);
 }
 
-Icon.prototype.animate = function () {
+Icon.prototype.setActive = function () {
 	
-	$j(this.icon).animate({
-		"top" : "-500"	
-		}, this.speed, function () {
-		
-		$j(this.icon).remove();
-		
-	});
+	this.state = 1;
 	
 }
 
 //play audio
 
-function runGame()
-{
-	var leftpos = [0, 120, 240, 360];
-	var setRandom = Math.ceil(Math.random()*4);
-	var icon = new Icon("Ctrl+S", "Save");
-	icon.setKeyMap();
-	icon.setPosition(leftpos[setRandom], 800);
-	icon.draw();
-	icon.animate();
-}
