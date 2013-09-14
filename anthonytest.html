@@ -1,0 +1,13 @@
+<html><head><title>AJAX Example</title>
+</head><body><center />
+<h1>Loading a web page into a DIV</h1>
+<div id='info'>This sentence will be replaced</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+	$(function(){
+       $.get("anthonytest.php", function(data){
+           alert(data);
+       });
+    });
+</script></body></html>
