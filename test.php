@@ -14,6 +14,8 @@
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- !CSS -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet/less" text="text/css" href="css/normalize.less">
 	<link rel="stylesheet/less" text="text/css" href="css/matt-base.less">
 	<link rel="stylesheet/less" text="text/css" href="css/base.less">
@@ -35,7 +37,10 @@
 				</div>
 				<div class="current-software">
 					<img src="icons/software-icon.png">
-					<h2>Photoshop</h2>	
+					<h2>Photoshop</h2>
+			
+					<button class="button">Reset</button>
+					<button class="button">New Game</button>
 				</div>
 			</div>
 
