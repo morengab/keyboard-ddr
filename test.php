@@ -78,6 +78,7 @@
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script>!window.jQuery && document.write('<script src=//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"><\/script>')</script>
+	<script src="js/scoring.js"></script>
 	<script src="js/hotkeys.js"></script>
 	<script src="js/jquery.jplayer.min.js"></script>
 	<script src="js/game.js"></script>

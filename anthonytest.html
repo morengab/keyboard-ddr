@@ -1,0 +1,13 @@
+<html><head><title>Anthony Test</title>
+</head><body><center />
+<h1>Testing fetching shorcuts from the DB</h1>
+<div id='info'>blah blah blah</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+	$(function(){
+       $.get("getShortcuts.php", { app_name: "Photoshop", name:"Copy" }, function(data){
+           alert(data);
+       });
+    });
+</script></body></html>
