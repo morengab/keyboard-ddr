@@ -35,12 +35,12 @@
 				<div class="score">
 					<span class="points">100,000</span> points
 				</div>
-				<div class="current-software">
+				<div class="current-software" id="buttons">
 					<img src="icons/software-icon.png">
 					<h2>Photoshop</h2>
-			
-					<button class="button">Reset</button>
-					<button class="button">New Game</button>
+					<button class="button" id="start">Start</button>
+					<button class="button" id="reset">Reset</button>
+					
 				</div>
 			</div>
 

@@ -1,22 +1,32 @@
 $j = jQuery.noConflict();
 jQuery.fx.interval = 5;
-var speed = 5000;
+var speed = 2000;
 var height = 800;
 var width = 200;
-var beat = 1000;
+var beat = 500;
+var started = false;
+var gameloop;
+
 $j(document).ready(function () {
 
 	//create game objects
 
 	
 	//create keyboard mapping
-	$j("#start").on("click", function () {
+	$j("#start").click(function () {
+		if (started == false)
+	{
+	
 	//music
 	$j("#music").jPlayer({
 		ready: function () {
 			$j(this).jPlayer("setMedia", {
 				mp3: "media/spacejam.mp3"
 			}).jPlayer("play");
+			var game = new Game();
+			game.runGame();
+			$j("#start").html("New Game");
+			started = true;
 		},
 		swfPath: "js",
 		loop: true,
@@ -24,12 +34,17 @@ $j(document).ready(function () {
 	});
 	
 	
-	
 	//set s3core
-	var game = new Game();
-	game.runGame();
 	
+	}
+		else {
+			
+			clearInterval(gameloop);
+			$j(".icon").remove();
+			
+		}
 	});
+	
 	
 	
 });
@@ -78,7 +93,7 @@ Game.prototype.animate = function(current) {
 
 Game.prototype.runGame = function () {
 		var self = this;
-		setInterval(function () {self.setLoop()}, beat * 4);
+		gameloop = setInterval(function () {self.setLoop()}, beat * 4);
 }
 
 Game.prototype.setLoop = function (i) {
