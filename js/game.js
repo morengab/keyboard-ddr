@@ -1,7 +1,9 @@
 $j = jQuery.noConflict();
-
-var speed = 6000;
-
+jQuery.fx.interval = 5;
+var speed = 5000;
+var height = 800;
+var width = 200;
+var beat = 800;
 $j(document).ready(function () {
 
 	//create game objects
@@ -9,8 +11,21 @@ $j(document).ready(function () {
 	
 	//create keyboard mapping
 	
+	//music
+	$j("#music").jPlayer({
+		ready: function () {
+			$j(this).jPlayer("setMedia", {
+				mp3: "/media/spacejam.mp3"
+			});
+		},
+		swfPath: "/js",
+
 	
-	//set score
+	});
+	
+	
+	
+	//set s3core
 	var game = new Game();
 	game.runGame();
 });
@@ -58,17 +73,34 @@ Game.prototype.animate = function(current) {
 
 Game.prototype.runGame = function () {
 		var self = this;
-		setInterval(function () {self.setLoop()}, 2000);
+		setInterval(function () {self.setLoop()}, beat * 4);
 }
 
-Game.prototype.setLoop = function () {
-	
-		var leftpos = [0, 120, 240, 360];
-		var setRandom = Math.ceil(Math.random()*4);
+Game.prototype.setLoop = function (i) {
+	//create the beat tuples widths
+	var tuple1 = [0, width, width*2, width*3];
+	var tuple2 = [0, 0, width, width];
+	var tuple3 = [width, width*2, 0, width*3];
+	var tuple4 = [width*3, width*3, width, width];
+	var tuple5 = [width*2, width*3, width*1, 0];
+	var random_tuple = [tuple1, tuple2, tuple3, tuple4, tuple5];
+	var setRandom = Math.ceil(Math.random()*4);
+	for (var i = 0; i <= 3; i++)
+	{
+	this.runLoop(random_tuple[setRandom], i);
+	}		
+}
+
+Game.prototype.runLoop = function (set_tuple, runCount) {
+	var self = this;
+	setTimeout(function () {
 		var icon = new Icon("Ctrl+S", "Save");
-		icon.setKeyMap();
-		icon.draw(leftpos[setRandom], 800);
-		this.animate(icon);
+			icon.setKeyMap();
+			icon.draw(set_tuple[runCount], height);
+			self.animate(icon);
+
+	
+	}, runCount * beat);
 	
 }
 	
