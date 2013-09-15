@@ -41,7 +41,7 @@ $database = new medoo('macadamia_cluster');
 						<span class="points">0</span> points
 					</div>
 					<div>
-						<span class="scoreStreak">0</span> in a row | <span class="scoreMultiplier">1</span>x multiplier
+						<span class="scoreStreak">0</span> in a row | <span class="scoreMultiplier">1</span>x multiplier | <span class="percentage">0</span>% correct 
 					</div>
 				</div>
 				<div class="current-software" id="buttons">
