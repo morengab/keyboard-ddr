@@ -35,7 +35,7 @@
 	$response = array();
    	foreach ($results as $result) {
    		
-		$response[$result['id']] = array('app_name' => $result['app_name'], 'name' => $result['name'], 'shortcut' => $result['shortcut']);
+		$response[$result['id']] = array('app_name' => $result['app_name'], 'name' => $result['name'], 'shortcut' => $result['shortcut'], 'image' => $result['image']);
 		
 		
    	}
