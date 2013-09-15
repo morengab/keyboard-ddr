@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.27)
 # Database: macadamia_cluster
-# Generation Time: 2013-09-15 06:27:18 +0000
+# Generation Time: 2013-09-15 11:08:15 +0000
 # ************************************************************
 
 
@@ -55,22 +55,25 @@ VALUES
 	(15,'Photoshop','Pen','P','icons/photoshop/pen.png'),
 	(17,'Photoshop','Rectangular Marquee','M','icons/photoshop/select.png'),
 	(18,'Photoshop','Shape','U','icons/photoshop/shape.png'),
-	(19,'Gmail','Go to Inbox','G+I',NULL),
-	(20,'Gmail','Go to Drafts','G+D',NULL),
-	(21,'Gmail','Go to Sent Items','G+T',NULL),
-	(22,'Gmail','Go to Contacts','G+C',NULL),
-	(23,'Gmail','Select All Conversations','*+A',NULL),
-	(24,'Gmail','Deselect All Converesations','*+N',NULL),
-	(25,'Gmail','Open Conversation','O',NULL),
-	(26,'Gmail','Read Previous Message','P',NULL),
-	(27,'Gmail','Read Next Message','N',NULL),
-	(28,'Gmail','Compose','C',NULL),
-	(29,'Gmail','Search Mail','/',NULL),
-	(30,'Gmail','Select Conversation','X',NULL),
-	(31,'Gmail','Archive','E',NULL),
-	(32,'Gmail','Delete','#',NULL),
-	(33,'Gmail','Reply','R',NULL),
-	(34,'Gmail','Forward','F',NULL);
+	(19,'Gmail','Go to Inbox','G+I','icons/gmail/googlemail-128.png'),
+	(20,'Gmail','Go to Drafts','G+D','icons/gmail/googlemail-128.png'),
+	(21,'Gmail','Go to Sent Items','G+T','icons/gmail/googlemail-128.png'),
+	(22,'Gmail','Go to Contacts','G+C','icons/gmail/googlemail-128.png'),
+	(23,'Gmail','Select All Conversations','*+A','icons/gmail/googlemail-128.png'),
+	(24,'Gmail','Deselect All Converesations','*+N','icons/gmail/googlemail-128.png'),
+	(25,'Gmail','Open Conversation','O','icons/gmail/googlemail-128.png'),
+	(26,'Gmail','Read Previous Message','P','icons/gmail/googlemail-128.png'),
+	(27,'Gmail','Read Next Message','N','icons/gmail/googlemail-128.png'),
+	(28,'Gmail','Compose','C','icons/gmail/googlemail-128.png'),
+	(29,'Gmail','Search Mail','/','icons/gmail/googlemail-128.png'),
+	(30,'Gmail','Select Conversation','X','icons/gmail/googlemail-128.png'),
+	(31,'Gmail','Archive','E','icons/gmail/googlemail-128.png'),
+	(32,'Gmail','Delete','#','icons/gmail/googlemail-128.png'),
+	(33,'Gmail','Reply','R','icons/gmail/googlemail-128.png'),
+	(34,'Gmail','Forward','F','icons/gmail/googlemail-128.png'),
+	(35,'Photoshop','Desaturate','Shift+Ctrl+D','icons/photoshop/desaturate.png'),
+	(36,'Photoshop','Merge Layers','Ctrl+E','icons/photoshop/mergelayers.png'),
+	(37,'Photoshop','New Layer','Shift+Ctrl+N','icons/photoshop/newlayer.png');
 
 /*!40000 ALTER TABLE `shortcuts` ENABLE KEYS */;
 UNLOCK TABLES;
