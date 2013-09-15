@@ -51,7 +51,7 @@ $database = new medoo('macadamia_cluster');
 					
 					<button class="button" id="reset">Reset</button>
 				</div>
-				<div id="my-modal" style="display:none;">
+				<div id="my-modal" class="reveal-modal">
 					<div id="modal_container">
 						<h2>Select the tools you would like to train.</h2>
 						<div id="program_selector">
@@ -144,9 +144,10 @@ $database = new medoo('macadamia_cluster');
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script>!window.jQuery && document.write('<script src=//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"><\/script>')</script>
-	<script src="downloads/jquery.simplemodal.1.4.4.min.js"></script>
+	
 	<script src="js/scoring.js"></script>
 	<script src="js/hotkeys.js"></script>
+	<script src="js/jquery.reveal.js"></script>
 	<script src="js/jquery.jplayer.min.js"></script>
 	<script src="js/game.js"></script>
 </body>

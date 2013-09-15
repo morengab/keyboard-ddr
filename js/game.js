@@ -15,7 +15,13 @@ var currentIcon = 0;
 $j(document).ready(function () {
 	
 	//show modal on page load
-	$j.modal($j("#my-modal"));
+	$j('#my-modal').reveal({
+     animation: 'fade',                   //fade, fadeAndPop, none
+     animationspeed: 300,                       //how fast animtions are
+     closeonbackgroundclick: false
+     });
+
+	$j('#my-modal').trigger('reveal:open');
 
 	//create game objects
 	//selectedIcons = $j.get("getShortcuts.php", { app_name: "Photoshop" }, {} ,  );
@@ -44,27 +50,36 @@ $j(document).ready(function () {
 	//clicking start will close the modal
 	// and start the game
 	$j("#start").click(function () {
-		$j.modal.close();
+		if (userSelected.length == 4)
+		{
+		$j("#my-modal").trigger('reveal:close');
 		resetScoring();
 		$j("#music").jPlayer("play", 0);
 
-		$j("#col1-board .icon-background").css("background", $j("#icon-" + userSelected[1]).css("background"));
-		$j("#col2-board .icon-background").css("background", $j("#icon-" + userSelected[1]).css("background"));
-		$j("#col3-board .icon-background").css("background", $j("#icon-" + userSelected[2]).css("background"));
-		$j("#col4-board .icon-background").css("background", $j("#icon-" + userSelected[3]).css("background"));
+		$j("#col1-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[0]].image + "')" );
+		$j("#col2-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[1]].image + "')" );
+		$j("#col3-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[2]].image + "')" );
+		$j("#col4-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[3]].image + "')" );
 		game = new Game();
 		game.runGame();
 		started = true;
+		}
+		else
+		{
+			alert("Choose 4 icons");	
+		}
 	});
 
 	//create keyboard mapping
 	$j("#new-game").click(function () {
+			userSelected = [];
+			$j('#my-modal').trigger('reveal:open');
 			game.endGame();
 			$j(".icon").remove();
 			resetScoring();
 			$j("#music").jPlayer("stop");
 			started = false;
-			$j.modal($j("#my-modal"));
+
 	});
 	
 	//create modal handler
@@ -83,8 +98,8 @@ $j(document).ready(function () {
 
 	});
 	
-	$j("#icon_holder .icon_selector").on("click", function () {
-		
+	$j("#icon_holder").on("click", ".icon_selector", function () {
+		console.log(this);
 		if (!$j(this).hasClass("active") && userSelected.length < 4) {
 			userSelected[currentIcon] = $j(this).attr("data-id");
 			$j(this).addClass("active");
@@ -159,6 +174,7 @@ Game.prototype.endGame = function () {
 	{
 		clearTimeout(tupleloop[i]);
 	}
+	
 	
 }
 
