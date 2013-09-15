@@ -54,6 +54,8 @@ $j(document).ready(function () {
 		{
 		$j("#my-modal").trigger('reveal:close');
 		resetScoring();
+		$j("#lifebar").css("background", "rgba(13, 33, 54, 1.0)");
+		$j("#gameOver").remove();
 		$j("#music").jPlayer("play", 0);
 
 		$j("#col1-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[0]].image + "')" );
@@ -77,6 +79,8 @@ $j(document).ready(function () {
 			game.endGame();
 			$j(".icon").remove();
 			resetScoring();
+			$j("#lifebar").css("background", "rgba(13, 33, 54, 1.0)");
+			$j("#gameOver").remove();
 			$j("#music").jPlayer("stop");
 			started = false;
 
@@ -90,7 +94,8 @@ $j(document).ready(function () {
 			game.endGame();
 			$j(".icon").remove();
 			resetScoring();
-			
+			$j("#lifebar").css("background", "rgba(13, 33, 54, 1.0)");
+			$j("#gameOver").remove();
 			game = new Game();
 			game.runGame();
 			$j("#music").jPlayer("play", 0);
@@ -156,7 +161,14 @@ Game.prototype.animate = function(current) {
 					// missed!
 					scoreWrongAnswer();
 					self.state = 2;
-					debugScoring();
+					if (isGameOver()){
+						game.endGame();
+						$j(".icon").remove();
+						$j("#lifebar").css("background", "#ec5050");
+						$j("#board").append("<span id=\"gameOver\"style=\"font-size:48px; margin-top:30px; color: red;\"><center>GAME OVER<center></span>");
+						$j("#music").jPlayer("stop");
+						started = false;
+					}
 				}
 			
 			}	
