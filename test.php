@@ -28,6 +28,10 @@
 	<script src="js/less.js" type="text/javascript"></script>
 </head>
 <!-- !Body -->
+<?php 
+require_once 'downloads/medoo.min.php';
+$database = new medoo('macadamia_cluster');
+?>
 <body>
 	<div id="container">	
 		<section class="container" id="main">		
@@ -53,6 +57,20 @@
 							Photoshack
 						</div>
 						<div id="icon_holder">
+							<?php
+							$results = $database->select("shortcuts", "*");
+							
+							foreach ($results as $result) :
+							?>
+							<div class="icon_selector" data-id="<?= $result['id']; ?>" style="background:url('<?= $image ?>') top left no-repeat transparent; background-size: 100px 100px;">	
+							</div>
+							
+							<?php
+							endforeach;
+							
+							?>
+						<!--
+
 							<div class="icon_selector">	
 							</div>
 							<div class="icon_selector">	
@@ -83,8 +101,7 @@
 							</div>
 							<div class="icon_selector">	
 							</div>
-							<div class="icon_selector">	
-							</div>
+-->
 						</div>
 					</div>
 					
