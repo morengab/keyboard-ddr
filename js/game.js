@@ -16,7 +16,7 @@ $j(document).ready(function () {
 	$j("#start").click(function () {
 		if (started == false)
 	{
-	
+
 	//music
 	$j("#music").jPlayer({
 		ready: function () {
@@ -33,6 +33,10 @@ $j(document).ready(function () {
 		supplied: "mp3",
 	});
 	
+	//create modal handler
+	$j("#new-game").click(function () {
+		//$("#my-modal").modal(); 
+	})
 	
 	//set s3core
 	resetScoring();
