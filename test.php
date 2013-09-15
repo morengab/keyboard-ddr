@@ -57,10 +57,10 @@
 						<div id="lifebar-scale"></div>
 					</div>
 
-					<div class="two columns alpha" id="col1">	</div>
+					<div class="two columns alpha" id="col1"></div>
 					<div class="two columns" id="col2">	</div>
 					<div class="two columns" id="col3">	</div>
-					<div class="two columns omega" id="col4">	</div>
+					<div class="two columns omega" id="col4"></div>
 				</div>
 				<div class="row" id="board">
 					<div class="two columns alpha" id="col1-board">
@@ -75,9 +75,7 @@
 					<div class="two columns omega" id="col4-board">
 						<div class="icon"></div>
 					</div>
-
 				</div>
-
 			</div>
 		</section><!-- /main -->		
 		<footer>
