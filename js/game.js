@@ -107,7 +107,7 @@ $j(document).ready(function () {
 		console.log(this);
 		if (!$j(this).hasClass("active") && userSelected.length < 4) {
 			userSelected[currentIcon] = $j(this).attr("data-id");			
-			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-app-name") + ": " + $j(this).attr("data-name") + "</li>");
+			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-name") + "  (" + $j(this).attr("data-shortcut") + ")</li>");
 			$j(this).addClass("active");
 			currentIcon++;	
 		} else if ($j(this).hasClass("active")) {
