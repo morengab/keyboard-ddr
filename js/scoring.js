@@ -15,17 +15,6 @@ var LIFE_INCREMENT = 4;
 
 // Scoring functions
 
-// updates scoring based on whether key press was correct. returns whether to continue the game based on player's life.
-function scoreAnswer(isAnswerCorrect) {
-	if (isAnswerCorrect) {
-		scoreCorrectAnswer();
-	} else {
-		scoreWrongAnswer();
-	}
-	
-	return life > 0;
-}
-
 // correct answer? add to score, add to streak, add to multiplier, add life
 function scoreCorrectAnswer() {
 	score += SCORE_INCREMENT * scoreMultiplier;
@@ -45,6 +34,11 @@ function scoreWrongAnswer() {
 function updateLife(amount) {
 	var newLife = life + amount;
 	life = (newLife > MAX_LIFE) ? MAX_LIFE : newLife;
+	$j("#lifebar-scale").css("width", life + "%")
+}
+
+function isGameOver() {
+	return life <= 0;
 }
 
 function updateMultiplier(){

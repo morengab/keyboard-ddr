@@ -1,9 +1,9 @@
 $j = jQuery.noConflict();
 jQuery.fx.interval = 5;
-var speed = 2000;
+var speed = 4000;
 var height = 800;
 var width = 200;
-var beat = 500;
+var beat = 1000;
 var started = false;
 var gameloop;
 
@@ -35,6 +35,7 @@ $j(document).ready(function () {
 	
 	
 	//set s3core
+	resetScoring();
 	
 	}
 		else {

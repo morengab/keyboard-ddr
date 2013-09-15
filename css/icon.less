@@ -1,0 +1,63 @@
+@import "base.less";
+#board {
+	height: @BOARD_HEIGHT;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.icon-background {
+	 background: url('../icons/ps_arrow.png') top left no-repeat transparent;
+	 width: 100px;
+	 height: 100px;
+	 display: block;
+	 margin: 0 auto;
+	 opacity: .5;
+	 z-index: 3;
+}
+
+.icon {
+	position: absolute;
+    background: url('../icons/ps_arrow.png') top left no-repeat transparent;
+    width: @ICON_WIDTH;
+    height: @ICON_HEIGHT;
+    opacity: @ICON_OPACITY;
+    transition: opacity @ANIM_TIME ease-in;
+    position: absolute;
+    z-index: 2;
+	-webkit-transition: box-shadow .4s ease;
+	-moz-transition: box-shadow .4s ease;
+	-ms-transition: box-shadow .4s ease;
+	-o-transition: box-shadow .4s ease;
+	transition: box-shadow .4s ease;
+	-webkit-transition: opacity .2s ease;
+	-moz-transition: opacity .2s ease;
+	-ms-transition: opacity .2s ease;
+	-o-transition: opacity .2s ease;
+	transition: opacity .2s ease;
+    .rounded-corners;
+    &.press {
+	    opacity: 0 !important;
+	    		-moz-transition:.3s ease-out;
+ -moz-transform:scale(1.2,1.2);
+ -webkit-transition:.3s ease-out;
+ -webkit-transform:scale(1.4,1.4);
+ -o-transition:.3s ease-out;
+ -o-transform:scale(1.2,1.2);
+ -ms-transition:.3s ease-out;
+ -ms-transform:scale(1.2,1.2);
+ transition:.3s ease-out;
+ transform:scale(1.2,1.2);
+    }
+    &:hover {
+        opacity: 1.0;
+        cursor: pointer;
+    }
+    
+    &.active {
+		  -webkit-box-shadow: 0 0 15px #FFF;
+       -moz-box-shadow: 0 0 15px #FFF;
+            box-shadow: 0 0 15px #FFF;
+            opacity: .9;
+	}
+}
