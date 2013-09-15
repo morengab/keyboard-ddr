@@ -87,7 +87,7 @@ function Game() {
 Game.prototype.animate = function(current) {
 	var self = current;
 	$j(current.icon).animate({
-		"top" : "-100"	
+		"top" : "-200"	
 		}, {
 			easing: "linear",
 			duration: speed,
@@ -97,13 +97,12 @@ Game.prototype.animate = function(current) {
 			},
 			step: function(now, fx) {
 				var pos = $j(fx.elem).position();
-				if (parseInt(pos.top) <= 80 && self.state == 0)
+				if (parseInt(pos.top) <= 50 && parseInt(pos.top) >= -50 && self.state == 0)
 				{
 					$j(this).addClass("active");
 					self.setActive();
 				}
-
-				if (parseInt(pos.top) <= 0 && self.state != 2)
+				else if (parseInt(pos.top) <= -50 && self.state != 2)
 				{
 					// missed!
 					scoreWrongAnswer();
@@ -212,11 +211,12 @@ Icon.prototype.draw = function (x, y) {
 		class: "icon"
 	});
 	
-	icon_item.html(this.label);
+	icon_item.html("<span>(" + this.label + ") " + this.keymap + "</span>");
 	
 	icon_item.css("left", parseInt(x + 30) + "px");
 	icon_item.css("top", y + "px");
 	icon_item.css("background", "url('" + this.image + "') top left no-repeat transparent");
+	icon_item.css("background-size", "cover");
 	this.icon = icon_item;
 	$j("#board").append(icon_item);
 }

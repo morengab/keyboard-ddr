@@ -8,22 +8,22 @@
 			// Get a shortcut by name and app
 			$results = $database->select("shortcuts",
 											"*",
-											[
+											array(
 												"AND" => 
-													[
+													array(
 														"app_name" => $_GET['app_name'],
 														"name" => $_GET['name']
-													]
-											]);
+													)
+											));
 								
 		
 		} else {
 			// Get all shortcuts for one app
 			$results = $database->select("shortcuts",
 											"*",
-											[
+											array(
 												"app_name" => $_GET['app_name']
-											]);
+											));
 
 		}		
  	} else {
