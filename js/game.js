@@ -6,6 +6,8 @@ var width = 180;
 var beat = 1000;
 var started = false;
 var gameloop;
+var tupleloop;
+var game;
 
 $j(document).ready(function () {
 
@@ -21,11 +23,11 @@ $j(document).ready(function () {
 	$j("#music").jPlayer({
 		ready: function () {
 			$j(this).jPlayer("setMedia", {
-				mp3: "media/spacejam.mp3"
+				mp3: "media/eple.mp3"
 			}).jPlayer("play");
-			var game = new Game();
+			game = new Game();
 			game.runGame();
-			$j("#start").html("New Game");
+			$j("#start").html("New");
 			started = true;
 		},
 		swfPath: "js",
@@ -35,14 +37,23 @@ $j(document).ready(function () {
 	
 	
 	//set s3core
-	resetScoring();
+		resetScoring();
 	
 	}
+	});
+	
+	$j("#newgame").click(function ()
+	
+	
 		else {
 			
-			clearInterval(gameloop);
+			game.endGame();
+						
 			$j(".icon").remove();
 			
+			resetScoring();
+			game = new Game();
+			game.runGame();
 		}
 	});
 	
@@ -93,6 +104,11 @@ Game.prototype.animate = function(current) {
 }
 
 
+Game.prototype.endGame = function () {
+	
+	clearInterval(gameloop);
+	clearTimeout(tupleloop);
+}
 
 
 Game.prototype.runGame = function () {
@@ -117,7 +133,7 @@ Game.prototype.setLoop = function (i) {
 
 Game.prototype.runLoop = function (set_tuple, runCount) {
 	var self = this;
-	setTimeout(function () {
+	tupleloop = setTimeout(function () {
 		var icon = new Icon("Ctrl+S", "Save");
 			icon.setKeyMap();
 			icon.draw(set_tuple[runCount], height);
