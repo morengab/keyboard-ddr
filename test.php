@@ -17,8 +17,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet/less" text="text/css" href="css/normalize.less">
-	<link rel="stylesheet/less" text="text/css" href="css/matt-base.less">
 	<link rel="stylesheet/less" text="text/css" href="css/base.less">
+	<link rel="stylesheet/less" text="text/css" href="css/icon.less">
 	<!-- Uncomment if you are specifically targeting less enabled mobile browsers
 	<link rel="stylesheet" media="handheld" href="css/handheld.css?v=1">  -->
 	<!-- !Modernizr - All other JS at bottom -->
@@ -56,24 +56,19 @@
 					<div id="lifebar">
 						<div id="lifebar-scale"></div>
 					</div>
-
-					<div class="two columns alpha" id="col1"></div>
-					<div class="two columns" id="col2">	</div>
-					<div class="two columns" id="col3">	</div>
-					<div class="two columns omega" id="col4"></div>
 				</div>
 				<div class="row" id="board">
-					<div class="two columns alpha" id="col1-board">
-						<div class="icon"></div>
+					<div class="three columns alpha" id="col1-board">
+						<div class="icon-background"></div>
 					</div>
-					<div class="two columns" id="col2-board">
-						<div class="icon"></div>
+					<div class="three columns" id="col2-board">
+						<div class="icon-background"></div>
 					</div>
-					<div class="two columns" id="col3-board">
-						<div class="icon"></div>
+					<div class="three columns" id="col3-board">
+						<div class="icon-background"></div>
 					</div>
-					<div class="two columns omega" id="col4-board">
-						<div class="icon"></div>
+					<div class="three columns omega" id="col4-board">
+						<div class="icon-background"></div>
 					</div>
 				</div>
 			</div>

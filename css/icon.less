@@ -1,7 +1,24 @@
 @import "base.less";
+#board {
+	height: @BOARD_HEIGHT;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.icon-background {
+	 background: url('../icons/ps_arrow.png') top left no-repeat transparent;
+	 width: 100px;
+	 height: 100px;
+	 display: block;
+	 margin: 0 auto;
+	 opacity: .5;
+	 z-index: 3;
+}
+
 .icon {
 	position: absolute;
-    background-image: url('../icons/ps_arrow.png'); 
+    background: url('../icons/ps_arrow.png') top left no-repeat transparent;
     width: @ICON_WIDTH;
     height: @ICON_HEIGHT;
     opacity: @ICON_OPACITY;
