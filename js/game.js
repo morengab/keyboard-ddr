@@ -9,7 +9,8 @@ var gameloop;
 var tupleloop = [];
 var game;
 var selectedIcons;
-var userSelected = [1,2,3,5];
+var userSelected = [];
+var currentIcon = 0;
 
 $j(document).ready(function () {
 	
@@ -44,26 +45,21 @@ $j(document).ready(function () {
 	// and start the game
 	$j("#start").click(function () {
 		$j.modal.close();
+		resetScoring();
+		$j("#music").jPlayer("play", 0);
+		game = new Game();
+		game.runGame();
+		started = true;
 	});
 
 	//create keyboard mapping
 	$j("#new-game").click(function () {
-		if (started == false)
-	{
-		resetScoring();
-			$j("#music").jPlayer("play", 0);
-			game = new Game();
-			game.runGame();
-			started = true;
-	//music
-	}
-	else {
 			game.endGame();
 			$j(".icon").remove();
 			resetScoring();
 			$j("#music").jPlayer("stop");
 			started = false;
-		}
+			$j.modal.open();
 	});
 	
 	//create modal handler
@@ -81,7 +77,31 @@ $j(document).ready(function () {
 			started = true;
 
 	});
+	
+	$j("#icon_holder .icon_selector").on("click", function () {
+		
+		if (!$j(this).hasClass("active") && userSelected.length < 4) {
+			userSelected[currentIcon] = $j(this).attr("data-id");
+			$j(this).addClass("active");
+			currentIcon++;	
+		} else {
+			$j(this).removeClass("active");
+			userSelected.remove($j(this).attr("data-id"));
+			currentIcon--;
+		}
+	});
 });
+
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
 	
 
 function Game() {
