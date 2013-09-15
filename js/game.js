@@ -4,7 +4,7 @@ var bpm = 134;
 var speed = (1000/(bpm/60))*10;
 var height = 800;
 var width = 180;
-var beat = (60000/bpm);
+var beat = (60000/bpm) * 2;
 var started = false;
 var gameloop;
 var tupleloop = [];
@@ -44,7 +44,18 @@ $j(document).ready(function () {
 			});
 			},
 		swfPath: "js",
-		loop: true,
+		loop: false,
+		repeat: function(event) {
+			if (event.jPlayer.options.loop)
+			{
+				
+			} else {
+				$j(this).unbind(".jPlayerRepeat");
+				if (started){
+					game.gameWon();
+				}
+			}
+		},
 		supplied: "mp3",
 	});
 
@@ -69,7 +80,7 @@ $j(document).ready(function () {
 		}
 		else
 		{
-			alert("Choose 4 icons");	
+			alert("Choose 4 icons");
 		}
 	});
 
@@ -205,6 +216,12 @@ Game.prototype.endGame = function () {
 Game.prototype.runGame = function () {
 		var self = this;
 		gameloop = setInterval(function () {self.setLoop()}, beat * 4);
+}
+
+Game.prototype.gameWon = function () {
+	
+		//game is over!
+	
 }
 
 Game.prototype.setLoop = function (i) {
