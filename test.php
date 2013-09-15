@@ -49,6 +49,7 @@
 				</div>
 				<div id="my-modal" style="display:none;">
 					<div id="modal_container">
+						<h2>Select the tools you would like to train.</h2>
 						<div id="program_selector">
 							Photoshack
 						</div>
