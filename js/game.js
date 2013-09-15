@@ -74,8 +74,15 @@ $j(document).ready(function () {
 
 	//create keyboard mapping
 	$j("#new-game").click(function () {
-		userSelected = [];
+		//userSelected = [];
+		
+		$j('#my-modal').reveal({
+	    	animation: 'fade',                   //fade, fadeAndPop, none
+	    	animationspeed: 300,                       //how fast animtions are
+	    	closeonbackgroundclick: false
+	    });
 		$j('#my-modal').trigger('reveal:open');
+		
 		game.endGame();
 		$j(".icon").remove();
 		resetScoring();
@@ -107,7 +114,7 @@ $j(document).ready(function () {
 		console.log(this);
 		if (!$j(this).hasClass("active") && userSelected.length < 4) {
 			userSelected[currentIcon] = $j(this).attr("data-id");			
-			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-name") + "  (" + $j(this).attr("data-shortcut") + ")</li>");
+			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-name") + " (" + $j(this).attr("data-shortcut") + ")</li>");
 			$j(this).addClass("active");
 			currentIcon++;	
 		} else if ($j(this).hasClass("active")) {
