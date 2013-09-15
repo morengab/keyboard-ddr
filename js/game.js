@@ -35,6 +35,7 @@ $j(document).ready(function () {
 	
 	
 	//set s3core
+	resetScoring();
 	
 	}
 		else {
