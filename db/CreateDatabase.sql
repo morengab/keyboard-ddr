@@ -23,6 +23,6 @@ INSERT INTO shortcuts(id, app_name, name, shortcut, image)
 VALUES ('3', 'Photoshop','Cut','Ctrl+X','');
 
 INSERT INTO shortcuts(id, app_name, name, shortcut, image)
-VALUES ('1', 'emacs','Copy','Ctrl+C','');
+VALUES ('4', 'emacs','Copy','Ctrl+C','');
 
 SELECT * FROM shortcuts;
