@@ -12,6 +12,9 @@ var selectedIcons;
 var userSelected = [1,2,3,5];
 
 $j(document).ready(function () {
+	
+	//show modal on page load
+	$j.modal($j("#my-modal"));
 
 	//create game objects
 	//selectedIcons = $j.get("getShortcuts.php", { app_name: "Photoshop" }, {} ,  );
@@ -37,16 +40,20 @@ $j(document).ready(function () {
 		supplied: "mp3",
 	});
 
+	//clicking start will close the modal
+	// and start the game
+	$j("#start").click(function () {
+		$j.modal.close();
+	});
+
 	//create keyboard mapping
 	$j("#new-game").click(function () {
 		if (started == false)
 	{
-		$j.modal($j("#my-modal"));
 		resetScoring();
 			$j("#music").jPlayer("play", 0);
 			game = new Game();
 			game.runGame();
-			$j("#start").html("New");
 			started = true;
 	//music
 	}

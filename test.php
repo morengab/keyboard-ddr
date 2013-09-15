@@ -44,7 +44,7 @@
 					<img src="icons/software-icon.png">
 					<h2>Photoshop</h2>
 					<button class="button" id="new-game">New Game</button>
-					<button class="button" id="start">Start</button>
+					
 					<button class="button" id="reset">Reset</button>
 				</div>
 				<div id="my-modal" style="display:none;">
@@ -86,6 +86,7 @@
 							<div class="icon_selector">	
 							</div>
 						</div>
+						<button class="button" id="start">Start</button>
 					</div>
 					
 				</div>
