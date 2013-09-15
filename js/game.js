@@ -66,7 +66,7 @@ $j(document).ready(function () {
 		}
 		else
 		{
-			alert("Choose 4 icons");	
+			alert("Choose 4 icons");
 		}
 	});
 
