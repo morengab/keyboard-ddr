@@ -18,11 +18,13 @@ $j(document).ready(function () {
 	//show modal on page load
 	$j('#my-modal').reveal({
      animation: 'fade',                   //fade, fadeAndPop, none
-     animationspeed: 300,                       //how fast animtions are
+     animationspeed: 300,                 //how fast animtions are
      closeonbackgroundclick: false
      });
 
 	$j('#my-modal').trigger('reveal:open');
+
+	$j("#my-modal").append("<span class='points' id=\"gameOver\"style=\"\"><center><b>GAME OVER</b><center></span>");
 
 	//create game objects
 	//selectedIcons = $j.get("getShortcuts.php", { app_name: "Photoshop" }, {} ,  );

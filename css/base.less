@@ -12,6 +12,7 @@
 
 //fonts
 @MAIN_FONT: 'Open Sans Condensed', sans-serif;
+@SUB_FONT: 'Source Sans Pro', sans-serif;
 
 //header 
 @HEADER_HEIGHT: 50px;
@@ -108,6 +109,29 @@ a:active {color:white;text-decoration:none;}
     position: absolute;
     bottom: 10px;
     left: 17px;
+}
+
+@keyframes flash_kf {
+    from {color: black;}
+    to {color: red;}
+}
+
+@-webkit-keyframes flash_kf {
+    from {color: black;}
+    to {color: red;}
+}
+
+#gameOver {
+    animation: flash_kf 1s;
+    -webkit-animation: flash_kf 1s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    margin-top:400px; 
+    font-family: @SUB_FONT;
+    font-size: 5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0 auto; 
 }
 
 .active-selections {
