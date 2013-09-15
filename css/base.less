@@ -61,6 +61,43 @@ body {
     margin-top: @HEADER_MARGIN_TOP;
     background: rgba(0, 0, 0, 0.1);//rgba(39, 43, 46, 0.5);
 }
+#my-modal {
+    margin-right: -220px;
+    margin-top: -72px;
+    width: 700px;
+}
+#modal_container {
+    height:600px;
+    background-color:#0f1215;
+    opacity: .9;
+}
+#program_selector {
+    width: 150px;
+    border: 1px solid white;
+    float: left;
+    margin: 20px;
+    padding: 5px;
+    position:absolute;
+    margin-top:20px;
+}
+#icon_holder {
+    width: 410px;
+    display:block;
+    margin-top: 10px;
+    margin-right:50px;
+    float:right;
+
+
+}
+.icon_selector {
+    height:75px;
+    width:75px;
+    margin: 10px;
+    display:block;
+    border: 1px solid white;
+    float: left;
+    background: url('../icons/photoshop/crop.png') repeat center;
+}
 
 .score {
     height: @LIFEBOARD_HEIGHT;
@@ -83,7 +120,7 @@ body {
     width: 100%;
     height: @LIFEBOARD_HEIGHT;
     background-color: @DARK_BLUE;
-    border: 1px solid @MEDIUM_BLUE;
+
 }
 
 #lifebar-scale {
