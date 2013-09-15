@@ -1,9 +1,10 @@
 $j = jQuery.noConflict();
 jQuery.fx.interval = 5;
-var speed = 4000;
+var bpm = 134;
+var speed = (1000/(bpm/60))*8;
 var height = 800;
 var width = 180;
-var beat = 1000;
+var beat = (60000/bpm);
 var started = false;
 var gameloop;
 var tupleloop = [];
@@ -39,7 +40,7 @@ $j(document).ready(function () {
 	$j("#music").jPlayer({
 		ready: function () {
 			$j(this).jPlayer("setMedia", {
-				mp3: "media/eple.mp3"
+				mp3: "media/magicposition.mp3"
 			});
 			},
 		swfPath: "js",
