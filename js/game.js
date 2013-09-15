@@ -328,7 +328,7 @@ Icon.prototype.setKeyMap = function () {
 			debugScoring();
 			el.superbanner();
 			if (scoreMultiplier > 1) {
-				beat = (60000/bpm) * (3 / scoreMultiplier);
+				beat = (60000/bpm) * (3.5 / scoreMultiplier);
 			}
 			else {
 				beat = (60000/bpm) * 2;
