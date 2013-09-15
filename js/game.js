@@ -23,7 +23,7 @@ $j(document).ready(function () {
 		loop: true,
 		supplied: "mp3",
 	});
-	
+
 	//create keyboard mapping
 	$j("#new-game").click(function () {
 		if (started == false)
