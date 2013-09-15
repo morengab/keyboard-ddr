@@ -123,7 +123,7 @@ $j(document).ready(function () {
 	});
 	
 	$j("#icon_holder").on("click", ".icon_selector", function () {
-		console.log(this);
+
 		if (!$j(this).hasClass("active") && userSelected.length < 4) {
 			userSelected[currentIcon] = $j(this).attr("data-id");			
 			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-name") + " (" + $j(this).attr("data-shortcut") + ")</li>");
@@ -177,6 +177,8 @@ Game.prototype.animate = function(current) {
 				{
 					$j(this).addClass("active");
 					self.setActive();
+					
+					
 				}
 				else if (parseInt(pos.top) <= -50 && self.state != 2)
 				{
@@ -284,6 +286,7 @@ Icon.prototype.setKeyMap = function () {
 			el.state = 2;
 			scoreCorrectAnswer();
 			debugScoring();
+			el.superbanner();
 		}
 	});	
 
@@ -304,11 +307,24 @@ Icon.prototype.draw = function (x, y) {
 	icon_item.html("<span>" + this.keymap + "</span>");
 	
 	icon_item.css("left", parseInt(x + 30) + "px");
+	this.positionX = parseInt(x + 30);
 	icon_item.css("top", y + "px");
 	icon_item.css("background", "url('" + this.image + "') top left no-repeat transparent");
 	icon_item.css("background-size", "cover");
 	this.icon = icon_item;
 	$j("#board").append(icon_item);
+}
+
+Icon.prototype.superbanner = function () {
+	
+	var explode_div = $j("<div/>", {
+		class: "super"
+	}).html(this.label);
+	explode_div.css("left", this.positionX + "px");
+	$j("#board").append(explode_div);
+	$j(explode_div).animate({opacity: 0}, 500, function () {
+			$j(explode_div).remove();
+		});
 }
 
 Icon.prototype.setActive = function () {

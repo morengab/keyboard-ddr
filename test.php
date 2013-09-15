@@ -131,5 +131,6 @@ $database = new medoo('macadamia_cluster');
 	<script src="js/jquery.reveal.js"></script>
 	<script src="js/jquery.jplayer.min.js"></script>
 	<script src="js/game.js"></script>
+	
 </body>
 </html>
