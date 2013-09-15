@@ -1,54 +1,68 @@
 $j = jQuery.noConflict();
 jQuery.fx.interval = 5;
-var speed = 2000;
+var speed = 4000;
 var height = 800;
-var width = 200;
-var beat = 500;
+var width = 180;
+var beat = 1000;
 var started = false;
 var gameloop;
+var tupleloop = [];
+var game;
 
 $j(document).ready(function () {
 
 	//create game objects
 
-	
-	//create keyboard mapping
-	$j("#start").click(function () {
-		if (started == false)
-	{
-	
-	//music
 	$j("#music").jPlayer({
 		ready: function () {
 			$j(this).jPlayer("setMedia", {
-				mp3: "media/spacejam.mp3"
-			}).jPlayer("play");
-			var game = new Game();
-			game.runGame();
-			$j("#start").html("New Game");
-			started = true;
-		},
+				mp3: "media/eple.mp3"
+			});
+			},
 		swfPath: "js",
 		loop: true,
 		supplied: "mp3",
 	});
-	
-	
-	//set s3core
-	
+
+	//create keyboard mapping
+	$j("#new-game").click(function () {
+		if (started == false)
+	{
+		$j.modal($j("#my-modal"));
+		resetScoring();
+			$j("#music").jPlayer("play", 0);
+			game = new Game();
+			game.runGame();
+			$j("#start").html("New");
+			started = true;
+	//music
 	}
-		else {
-			
-			clearInterval(gameloop);
+	else {
+			game.endGame();
 			$j(".icon").remove();
-			
+			resetScoring();
+			$j("#music").jPlayer("stop");
+			started = false;
 		}
 	});
 	
-	
-	
-});
+	//create modal handler
+	$j("#reset").click(function () {
+		//$("#my-modal").modal(); 
+		
+		
+			game.endGame();
+			$j(".icon").remove();
+			resetScoring();
+			
+			game = new Game();
+			game.runGame();
+			$j("#music").jPlayer("play", 0);
+			started = true;
 
+	});
+});
+	
 
 function Game() {
 	//parameters
@@ -92,6 +106,15 @@ Game.prototype.animate = function(current) {
 }
 
 
+Game.prototype.endGame = function () {
+	
+	clearInterval(gameloop);
+	for (var i = 0; i < tupleloop.length; i++)
+	{
+		clearTimeout(tupleloop[i]);
+	}
+	
+}
 
 
 Game.prototype.runGame = function () {
@@ -116,7 +139,7 @@ Game.prototype.setLoop = function (i) {
 
 Game.prototype.runLoop = function (set_tuple, runCount) {
 	var self = this;
-	setTimeout(function () {
+	tupleloop[runCount] = setTimeout(function () {
 		var icon = new Icon("Ctrl+S", "Save");
 			icon.setKeyMap();
 			icon.draw(set_tuple[runCount], height);
@@ -179,7 +202,7 @@ Icon.prototype.draw = function (x, y) {
 	
 	icon_item.html(this.label);
 	
-	icon_item.css("left", x + "px");
+	icon_item.css("left", parseInt(x + 30) + "px");
 	icon_item.css("top", y + "px");
 	this.icon = icon_item;
 	$j("#board").append(icon_item);
