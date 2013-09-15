@@ -64,7 +64,7 @@ $database = new medoo('macadamia_cluster');
 							
 							foreach ($results as $result) :
 							?>
-							<div class="icon_selector" data-id="<?php echo $result['id']; ?>" style="background:url('<?php echo $result['image']; ?>') top left no-repeat transparent; background-size: 75px 75px;">	
+							<div class="icon_selector" id="icon-<?php echo $result['id']; ?>" data-id="<?php echo $result['id']; ?>" style="background:url('<?php echo $result['image']; ?>') top left no-repeat transparent; background-size: 75px 75px;">	
 							</div>
 							
 							<?php

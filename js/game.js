@@ -47,6 +47,11 @@ $j(document).ready(function () {
 		$j.modal.close();
 		resetScoring();
 		$j("#music").jPlayer("play", 0);
+		console.log($j("#icon-" + userSelected[0]);
+		$j("#col1-board .icon-background").css("background", $j("#icon-" + userSelected[1]).css("background"));
+		$j("#col2-board .icon-background").css("background", $j("#icon-" + userSelected[1]).css("background"));
+		$j("#col3-board .icon-background").css("background", $j("#icon-" + userSelected[2]).css("background"));
+		$j("#col4-board .icon-background").css("background", $j("#icon-" + userSelected[3]).css("background"));
 		game = new Game();
 		game.runGame();
 		started = true;
@@ -59,7 +64,7 @@ $j(document).ready(function () {
 			resetScoring();
 			$j("#music").jPlayer("stop");
 			started = false;
-			$j.modal.open();
+			$j.modal($j("#my-modal"));
 	});
 	
 	//create modal handler
@@ -84,11 +89,13 @@ $j(document).ready(function () {
 			userSelected[currentIcon] = $j(this).attr("data-id");
 			$j(this).addClass("active");
 			currentIcon++;	
-		} else {
+		} else if ($j(this).hasClass("active")) {
 			$j(this).removeClass("active");
 			userSelected.remove($j(this).attr("data-id"));
 			currentIcon--;
 		}
+		
+		console.log(userSelected);
 	});
 });
 
@@ -216,7 +223,7 @@ Icon.prototype.setKeyMap = function () {
 	$j(document).bind("keypress", el.keymap, function () {
 		if (el.state == 1)
 		{
-			console.log("PRESSED");
+
 			$j("#" + el.uniq).addClass("press");
 			el.state = 2;
 			scoreCorrectAnswer();
@@ -238,7 +245,7 @@ Icon.prototype.draw = function (x, y) {
 		class: "icon"
 	});
 	
-	icon_item.html("<span>(" + this.label + ") " + this.keymap + "</span>");
+	icon_item.html("<span>" + this.keymap + "</span>");
 	
 	icon_item.css("left", parseInt(x + 30) + "px");
 	icon_item.css("top", y + "px");
