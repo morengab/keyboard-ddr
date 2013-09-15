@@ -36,6 +36,11 @@ $j(document).ready(function () {
 		dataType: "json"
 	});
 	
+	$j('.program_option').click(function(event) {
+	    event.preventDefault();
+	    changeProgram($j(this).attr("data-app-name"));
+	  });
+	
 	
 	$j("#music").jPlayer({
 		ready: function () {
@@ -123,10 +128,10 @@ $j(document).ready(function () {
 	});
 	
 	$j("#icon_holder").on("click", ".icon_selector", function () {
-		console.log(this);
+
 		if (!$j(this).hasClass("active") && userSelected.length < 4) {
 			userSelected[currentIcon] = $j(this).attr("data-id");			
-			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-name") + " (" + $j(this).attr("data-shortcut") + ")</li>");
+			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\" class=\"active-selection\">"+ $j(this).attr("data-name") + " (" + $j(this).attr("data-shortcut") + ")</li>");
 			$j(this).addClass("active");
 			currentIcon++;	
 		} else if ($j(this).hasClass("active")) {
@@ -152,6 +157,25 @@ Array.prototype.remove = function() {
     return this;
 };
 	
+function changeProgram(program) {
+	$j.ajax({
+		url: "getShortcuts.php",
+		data: {app_name: program},
+		success: function (response) {
+			selectedIcons = response;
+			userSelected = [];
+			currentIcon = 0;
+			$j(".icon_selector").remove();
+			$j(".active-selection").remove();
+			$j("#application-name").html(program);
+			$j('#application-logo').attr("src", "icons/" + program + ".png");
+			$j.each(selectedIcons, function(i, item) {
+				$j("#icon_holder").append("<div class=\"icon_selector\" id=\"icon-" + i + "\" data-id=\"" + i + "\" data-shortcut=\"" + item.shortcut + "\" data-name=\"" + item.name + "\" style=\"background:url('" + item.image + "') top left no-repeat transparent; background-size: 75px 75px;\"></div>");	
+			})
+		},
+		dataType: "json"
+	});
+}
 
 function Game() {
 	//parameters
@@ -177,11 +201,18 @@ Game.prototype.animate = function(current) {
 				{
 					$j(this).addClass("active");
 					self.setActive();
+					
+					
 				}
 				else if (parseInt(pos.top) <= -50 && self.state != 2)
 				{
+					var multiplier = 0;
 					// missed!
-					scoreWrongAnswer();
+					if (life > 60)
+					{
+						multiplier = (life % 60) / 2;
+					}
+					scoreWrongAnswer(-multiplier);
 					self.state = 2;
 					if (isGameOver()){
 						game.endGame();
@@ -219,6 +250,12 @@ Game.prototype.runGame = function () {
 		gameloop = setInterval(function () {self.setLoop()}, beat * 4);
 }
 
+Game.prototype.speedUp = function () {
+		clearInterval(gameloop);
+		var self = this;
+		gameloop = setInterval(function () {self.setLoop()}, beat * 4);
+}
+
 Game.prototype.gameWon = function () {
 	
 		//game is over!
@@ -249,7 +286,12 @@ Game.prototype.runLoop = function (set_tuple, runCount) {
 		icon.setKeyMap();
 		icon.draw(set_tuple[runCount], height);
 		self.animate(icon);
+		
 	}, runCount * beat);
+	
+	if (runCount == 3) {
+			self.speedUp();
+	}
 }
 	
 //assign icons
@@ -285,6 +327,13 @@ Icon.prototype.setKeyMap = function () {
 			el.state = 2;
 			scoreCorrectAnswer();
 			debugScoring();
+			el.superbanner();
+			if (scoreMultiplier > 1) {
+				beat = (60000/bpm) * (3 / scoreMultiplier);
+			}
+			else {
+				beat = (60000/bpm) * 2;
+			}
 		}
 	});	
 
@@ -305,11 +354,24 @@ Icon.prototype.draw = function (x, y) {
 	icon_item.html("<span>" + this.keymap + "</span>");
 	
 	icon_item.css("left", parseInt(x + 30) + "px");
+	this.positionX = parseInt(x + 30);
 	icon_item.css("top", y + "px");
 	icon_item.css("background", "url('" + this.image + "') top left no-repeat transparent");
 	icon_item.css("background-size", "cover");
 	this.icon = icon_item;
 	$j("#board").append(icon_item);
+}
+
+Icon.prototype.superbanner = function () {
+	
+	var explode_div = $j("<div/>", {
+		class: "super"
+	}).html(this.label);
+	explode_div.css("left", this.positionX + "px");
+	$j("#board").append(explode_div);
+	$j(explode_div).animate({opacity: 0}, 800, function () {
+			$j(explode_div).remove();
+		});
 }
 
 Icon.prototype.setActive = function () {
