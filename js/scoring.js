@@ -15,7 +15,7 @@ var MULTIPLIER_INCREMENT = 5;
 var MAX_MULTIPLIER = 5;
 
 var MAX_LIFE = 100;
-var LIFE_INCREMENT = 40;
+var LIFE_INCREMENT = 5;
 
 // Scoring functions
 
