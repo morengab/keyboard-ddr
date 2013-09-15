@@ -70,5 +70,5 @@ function resetStreak() {
 }
 
 function debugScoring() {
-	//console.log("DEBUG SCORING: " + "Score: " + score + " | Life: " + life + " | Multiplier: " + scoreMultiplier + " | Streak: " + scoreStreak);
+	console.log("DEBUG SCORING: " + "Score: " + score + " | Life: " + life + " | Multiplier: " + scoreMultiplier + " | Streak: " + scoreStreak);
 }
