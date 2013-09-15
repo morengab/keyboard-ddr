@@ -8,11 +8,26 @@ var started = false;
 var gameloop;
 var tupleloop = [];
 var game;
-
+var selectedIcons;
+var userSelected = [1,2,3,5];
 $j(document).ready(function () {
 
 	//create game objects
-
+	//selectedIcons = $j.get("getShortcuts.php", { app_name: "Photoshop" }, {} ,  );
+	
+	$j.ajax({
+		url: "getShortcuts.php",
+		data: {app_name: "Photoshop"},
+		success: function (response) {
+			
+			selectedIcons = response;
+			
+		},
+		dataType: "json"
+		
+	});
+	
+	
 	$j("#music").jPlayer({
 		ready: function () {
 			$j(this).jPlayer("setMedia", {
@@ -140,8 +155,17 @@ Game.prototype.setLoop = function (i) {
 Game.prototype.runLoop = function (set_tuple, runCount) {
 	var self = this;
 	tupleloop[runCount] = setTimeout(function () {
-		var icon = new Icon("Ctrl+S", "Save");
+		var swimlane = set_tuple[runCount] / width;
+		//var icon = new Icon("Ctrl+S", "Save");
+		var currIcon = iconsSelected[userSelected[swimlane]];
+		var icon = new Icon(currIcon.shortcut, currIcon.name);
 			icon.setKeyMap();
+			//console.log("runCount: " + runCount);
+			//console.log("set_tuple:" + set_tuple);
+			//console.log("set_tuple[]:" + set_tuple[runCount]);
+			console.log("set_tuple[]/runCount:" + set_tuple[runCount] / 180);
+			
+			
 			icon.draw(set_tuple[runCount], height);
 			self.animate(icon);
 
