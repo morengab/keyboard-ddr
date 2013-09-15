@@ -53,9 +53,9 @@ $database = new medoo('macadamia_cluster');
 				</div>
 				<div id="my-modal" class="reveal-modal">
 					<div id="modal_container">
-						<h2>Select the tools you would like to train.</h2>
+						<h2>Select the 4 tools you would like to train on.</h2>
 						<div id="program_selector">
-							Photoshack
+							Photoshop
 						</div>
 						<div id="icon_holder">
 							<?php
