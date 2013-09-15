@@ -55,7 +55,10 @@ $database = new medoo('macadamia_cluster');
 					<div id="modal_container">
 						<h2>Select the 4 tools you would like to train on.</h2>
 						<div id="program_selector">
-							Photoshop
+							<a href="#"><div class="program_selection" id="photoshop_option">Photoshop</div></a>
+							<a href="#"><div class="program_selection" id="word_option">Word</div></a>
+							<a href="#"><div class="program_selection" id="gmail_option">Gmail</div></a>
+
 						</div>
 						<div id="icon_holder">
 							<?php

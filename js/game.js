@@ -1,7 +1,7 @@
 $j = jQuery.noConflict();
 jQuery.fx.interval = 5;
 var bpm = 134;
-var speed = (1000/(bpm/60))*8;
+var speed = (1000/(bpm/60))*10;
 var height = 800;
 var width = 180;
 var beat = (60000/bpm);
