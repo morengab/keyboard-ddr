@@ -45,19 +45,19 @@ $database = new medoo('macadamia_cluster');
 					</div>
 				</div>
 				<div class="current-software" id="buttons">
-					<img src="icons/software-icon.png">
-					<h2>Photoshop</h2>
+					<img id="application-logo" src="icons/software-icon.png">
+					<h2><span id="application-name">Photoshop</span></h2>
 					<button class="button" id="new-game">New Game</button>
 					
 					<button class="button" id="reset">Reset</button>
 				</div>
 				<div id="my-modal" class="reveal-modal">
 					<div id="modal_container">
-						<h2>Select the 4 tools you would like to train on.</h2>
+						<h2>Select the application and 4 shortcuts you would like to train on.</h2>
 						<div id="program_selector">
-							<a href="#"><div class="program_selection" id="photoshop_option">Photoshop</div></a>
-							<a href="#"><div class="program_selection" id="word_option">Word</div></a>
-							<a href="#"><div class="program_selection" id="gmail_option">Gmail</div></a>
+							<a href="#" class="program_option" data-app-name="Photoshop"><div class="program_selection" id="photoshop_option">Photoshop</div></a>
+							<a href="#" class="program_option" data-app-name="Word"><div class="program_selection" id="word_option">Word</div></a>
+							<a href="#" class="program_option" data-app-name="Gmail"><div class="program_selection" id="gmail_option">Gmail</div></a>
 
 						</div>
 						<div id="icon_holder">
