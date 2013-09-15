@@ -106,6 +106,21 @@ a:active {color:white;text-decoration:none;}
     float:right;
 }
 
+#logo {
+    width: 200px;
+    height: 60px;
+}
+
+.logo-main {
+    position: relative;
+    top: 100px;
+}
+
+.logo-modal {
+    margin: 0 auto;
+    text-align: center;
+}
+
 #start {
     position: absolute;
     bottom: 10px;
@@ -114,20 +129,37 @@ a:active {color:white;text-decoration:none;}
 
 @keyframes flash_kf {
     from {color: black;}
-    to {color: red;}
+    to {color: rgba(190, 30, 45, 1);}
 }
 
 @-webkit-keyframes flash_kf {
     from {color: black;}
-    to {color: red;}
+    to {color: rgba(190, 30, 45, 1);}
 }
 
 #gameOver {
+    animation-name: flash_kf;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+    //animation-delay: .5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+    /* Safari and Chrome: */
+    -webkit-animation-name: flash_kf;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-timing-function: linear;
+    //-webkit-animation-delay: .5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: running;
     margin-top:400px; 
     margin: 0 auto; 
     width: 600px;
     height: 400px;
-    background-image: url('../media/gameover.gif');
+    font-family: @SUB_FONT;
+    font-weight:900;
+    //background-image: url('../media/gameover.gif');
 }
 
 .active-selections {
@@ -176,7 +208,7 @@ a:active {color:white;text-decoration:none;}
 }
 
 .current-software {
-    img {
+    #application-logo {
         width: 200px;
         height: 200px;
     }    

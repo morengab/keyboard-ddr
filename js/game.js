@@ -79,6 +79,7 @@ $j(document).ready(function () {
 		$j("#col2-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[1]].image + "')" );
 		$j("#col3-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[2]].image + "')" );
 		$j("#col4-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[3]].image + "')" );
+		
 		game = new Game();
 		game.runGame();
 		started = true;
@@ -218,8 +219,8 @@ Game.prototype.animate = function(current) {
 						game.endGame();
 						$j(".icon").remove();
 						$j("#lifebar").css("background", "#5f2136");
-						// $j("#board").append("<span class='points' id=\"gameOver\"style=\"margin-top:400px; font-size: 5em; color:white;\"><center><b>GAME OVER</b><center></span>");
-						$j("#board").append("<div class='points' id=\"gameOver\"style=\"\"></div>");	
+						$j("#board").append("<span class='points' id=\"gameOver\"style=\"margin-top:400px; font-size: 5em; color:white;\"><center><b>GAME OVER</b><center></span>");
+						//$j("#board").append("<div class='points' id=\"gameOver\"style=\"\"></div>");	
 						$j("#music").jPlayer("stop");
 						started = false;
 					}

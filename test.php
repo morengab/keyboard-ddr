@@ -50,9 +50,12 @@ $database = new medoo('macadamia_cluster');
 					<button class="button" id="new-game">New Game</button>
 					
 					<button class="button" id="reset">Reset</button>
+
+					<img id="logo" class="logo-main" src="icons/logo.png" alt="tut tut revolution logo">
 				</div>
 				<div id="my-modal" class="reveal-modal">
 					<div id="modal_container">
+						<img id="logo" class="logo-modal" src="icons/logo.png" alt="tut tut revolution logo">
 						<h2>Select the application and 4 shortcuts you would like to train on.</h2>
 						<div id="program_selector">
 							<a href="#" class="program_option" data-app-name="Photoshop"><div class="program_selection" id="photoshop_option">Photoshop</div></a>
