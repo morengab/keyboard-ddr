@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.27)
 # Database: macadamia_cluster
-# Generation Time: 2013-09-15 02:17:50 +0000
+# Generation Time: 2013-09-15 03:04:15 +0000
 # ************************************************************
 
 
@@ -39,11 +39,22 @@ LOCK TABLES `shortcuts` WRITE;
 
 INSERT INTO `shortcuts` (`id`, `app_name`, `name`, `shortcut`, `image`)
 VALUES
-	(1,'Photoshop','Copy','Ctrl+C','icons/ps_arrow.png'),
-	(2,'Photoshop','Paste','Ctrl+V','icons/ps_select.png'),
-	(3,'Photoshop','Cut','Ctrl+X','icons/ps_wand.png'),
-	(4,'emacs','Copy','Ctrl+C',NULL),
-	(5,'Photoshop','Duplicate Layer','Ctrl+J','icons/ps_lasso.png');
+	(1,'Photoshop','Zoom','Z','icons/photoshop/zoom.png'),
+	(2,'Photoshop','Magic Wand','W','icons/photoshop/wand.png'),
+	(3,'Photoshop','Text','T','icons/photoshop/text.png'),
+	(5,'Photoshop','Slice','C','icons/photoshop/slice.png'),
+	(6,'Photoshop','Move','V','icons/photoshop/arrow.png'),
+	(7,'Photoshop','Brush','B','icons/photoshop/brush.png'),
+	(8,'Photoshop','Crop','C','icons/photoshop/crop.png'),
+	(9,'Photoshop','Eraser','E','icons/photoshop/eraser.png'),
+	(10,'Photoshop','Eyedropper','I','icons/photoshop/eyedropper.png'),
+	(11,'Photoshop','Gradient','G','icons/photoshop/gradient.png'),
+	(12,'Photoshop','Hand','H','icons/photoshop/hand.png'),
+	(13,'Photoshop','Lasso','L','icons/photoshop/lasso.png'),
+	(14,'Photoshop','Direct Selection','A','icons/photoshop/path.png'),
+	(15,'Photoshop','Pen','P','icons/photoshop/pen.png'),
+	(17,'Photoshop','Rectangular Marquee','M','icons/photoshop/select.png'),
+	(18,'Photoshop','Shape','U','icons/photoshop/shape.png');
 
 /*!40000 ALTER TABLE `shortcuts` ENABLE KEYS */;
 UNLOCK TABLES;
