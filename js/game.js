@@ -33,11 +33,6 @@ $j(document).ready(function () {
 		supplied: "mp3",
 	});
 	
-	//create modal handler
-	$j("#new-game").click(function () {
-		//$("#my-modal").modal(); 
-	})
-	
 	//set s3core
 	resetScoring();
 	
@@ -49,8 +44,6 @@ $j(document).ready(function () {
 			
 		}
 	});
-	
-	
 	
 });
 
