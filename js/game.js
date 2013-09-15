@@ -175,8 +175,8 @@ Game.prototype.animate = function(current) {
 					if (isGameOver()){
 						game.endGame();
 						$j(".icon").remove();
-						$j("#lifebar").css("background", "#ec5050");
-						$j("#board").append("<span id=\"gameOver\"style=\"font-size:48px; margin-top:30px; color: red;\"><center>GAME OVER<center></span>");
+						$j("#lifebar").css("background", "#5f2136");
+						$j("#board").append("<span class='points' id=\"gameOver\"style=\"margin-top:400px; font-size: 5em; color:white;\"><center><b>GAME OVER</b><center></span>");
 						$j("#music").jPlayer("stop");
 						started = false;
 					}

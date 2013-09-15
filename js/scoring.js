@@ -51,6 +51,8 @@ function updateLife(amount) {
 	var newLife = life + amount;
 	life = (newLife > MAX_LIFE) ? MAX_LIFE : newLife;
 	$j("#lifebar-scale").css("width", life + "%")
+
+	$j("#lifebar").css("background", "rgba("+(100-(life/2))+", 33, 54, 1.0)");
 }
 
 function isGameOver() {
