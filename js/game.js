@@ -322,7 +322,7 @@ Icon.prototype.superbanner = function () {
 	}).html(this.label);
 	explode_div.css("left", this.positionX + "px");
 	$j("#board").append(explode_div);
-	$j(explode_div).animate({opacity: 0}, 500, function () {
+	$j(explode_div).animate({opacity: 0}, 800, function () {
 			$j(explode_div).remove();
 		});
 }
