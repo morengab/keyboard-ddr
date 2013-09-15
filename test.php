@@ -81,7 +81,7 @@ $database = new medoo('macadamia_cluster');
 						
 						
 						<ul class="active-selections">
-							Currently selected:
+							Currently selected tools:
 						</ul>
 
 						<button class="button" id="start">Start</button>
