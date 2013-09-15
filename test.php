@@ -58,11 +58,13 @@ $database = new medoo('macadamia_cluster');
 						</div>
 						<div id="icon_holder">
 							<?php
-							$results = $database->select("shortcuts", "*");
+							$results = $database->select("shortcuts", "*", array(
+												"app_name" => "Photoshop"
+											));
 							
 							foreach ($results as $result) :
 							?>
-							<div class="icon_selector" data-id="<?= $result['id']; ?>" style="background:url('<?= $image ?>') top left no-repeat transparent; background-size: 100px 100px;">	
+							<div class="icon_selector" data-id="<?php echo $result['id']; ?>" style="background:url('<?php echo $result['image']; ?>') top left no-repeat transparent; background-size: 75px 75px;">	
 							</div>
 							
 							<?php
