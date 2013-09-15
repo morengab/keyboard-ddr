@@ -2,7 +2,7 @@ $j = jQuery.noConflict();
 jQuery.fx.interval = 5;
 var speed = 4000;
 var height = 800;
-var width = 200;
+var width = 180;
 var beat = 1000;
 var started = false;
 var gameloop;
@@ -180,7 +180,7 @@ Icon.prototype.draw = function (x, y) {
 	
 	icon_item.html(this.label);
 	
-	icon_item.css("left", x + "px");
+	icon_item.css("left", parseInt(x + 30) + "px");
 	icon_item.css("top", y + "px");
 	this.icon = icon_item;
 	$j("#board").append(icon_item);
