@@ -16,7 +16,7 @@
 													]
 											]);
 								
-			echo json_encode($results);
+		
 		} else {
 			// Get all shortcuts for one app
 			$results = $database->select("shortcuts",
@@ -24,13 +24,22 @@
 											[
 												"app_name" => $_GET['app_name']
 											]);
-			
-			echo json_encode($results);
+
 		}		
  	} else {
 		// Get all shortcuts for all apps
 		$results = $database->select("shortcuts", "*");
- 
- 		echo json_encode($results);
-	}						
+		
+	}
+	
+	$response = array();
+   	foreach ($results as $result) {
+   		
+		$response[$result['id']] = array('app_name' => $result['app_name'], 'name' => $result['name'], 'shortcut' => $result['shortcut'], 'image' => $result['image']);
+		
+		
+   	}
+	echo json_encode($response);
+	
+							
 ?>

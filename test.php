@@ -37,7 +37,7 @@
 						<span class="points">0</span> points
 					</div>
 					<div>
-						<span class="scoreMultiplier">1</span>x multiplier
+						<span class="scoreStreak">0</span> in a row | <span class="scoreMultiplier">1</span>x multiplier
 					</div>
 				</div>
 				<div class="current-software" id="buttons">

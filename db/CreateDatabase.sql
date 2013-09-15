@@ -2,8 +2,6 @@ CREATE DATABASE macadamia_cluster;
 
 USE macadamia_cluster;
 
--- Create syntax for 'shortcuts'
-
 CREATE TABLE `shortcuts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `app_name` varchar(256) NOT NULL DEFAULT '',
@@ -24,5 +22,8 @@ VALUES ('3', 'Photoshop','Cut','Ctrl+X','');
 
 INSERT INTO shortcuts(id, app_name, name, shortcut, image)
 VALUES ('4', 'emacs','Copy','Ctrl+C','');
+
+INSERT INTO shortcuts(id, app_name, name, shortcut, image)
+VALUES ('5', 'Photoshop','Duplicate Layer','Ctrl+J','');
 
 SELECT * FROM shortcuts;

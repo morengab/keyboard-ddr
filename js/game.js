@@ -8,11 +8,24 @@ var started = false;
 var gameloop;
 var tupleloop = [];
 var game;
+var selectedIcons;
+var userSelected = [1,2,3,5];
 
 $j(document).ready(function () {
 
 	//create game objects
-
+	//selectedIcons = $j.get("getShortcuts.php", { app_name: "Photoshop" }, {} ,  );
+	
+	$j.ajax({
+		url: "getShortcuts.php",
+		data: {app_name: "Photoshop"},
+		success: function (response) {
+			selectedIcons = response;
+		},
+		dataType: "json"
+	});
+	
+	
 	$j("#music").jPlayer({
 		ready: function () {
 			$j(this).jPlayer("setMedia", {
@@ -133,25 +146,24 @@ Game.prototype.setLoop = function (i) {
 	var setRandom = Math.ceil(Math.random()*4);
 	for (var i = 0; i <= 3; i++)
 	{
-	this.runLoop(random_tuple[setRandom], i);
+		this.runLoop(random_tuple[setRandom], i);
 	}		
 }
 
 Game.prototype.runLoop = function (set_tuple, runCount) {
 	var self = this;
 	tupleloop[runCount] = setTimeout(function () {
-		var icon = new Icon("Ctrl+S", "Save");
-			icon.setKeyMap();
-			icon.draw(set_tuple[runCount], height);
-			self.animate(icon);
-
-	
+		var swimlane = set_tuple[runCount] / width;
+		var currIcon = selectedIcons[userSelected[swimlane]];
+		var icon = new Icon(currIcon.shortcut, currIcon.name, currIcon.image);
+		icon.setKeyMap();
+		icon.draw(set_tuple[runCount], height);
+		self.animate(icon);
 	}, runCount * beat);
-	
 }
 	
 //assign icons
-function Icon(keymap, label) {
+function Icon(keymap, label, image) {
 	this.uniq = new Date().getUTCMilliseconds();
 	//Ctrl+S
 	this.keymap = keymap;
@@ -165,7 +177,7 @@ function Icon(keymap, label) {
 	
 	//label
 	this.label = label;
-	
+	this.image = image;
 	this.value = 10;
 	this.value_neg = -5;
 	this.icon = 0;
@@ -204,6 +216,7 @@ Icon.prototype.draw = function (x, y) {
 	
 	icon_item.css("left", parseInt(x + 30) + "px");
 	icon_item.css("top", y + "px");
+	icon_item.css("background", "url('" + this.image + "') top left no-repeat transparent");
 	this.icon = icon_item;
 	$j("#board").append(icon_item);
 }

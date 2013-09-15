@@ -21,6 +21,7 @@ function scoreCorrectAnswer() {
 	$j(".points").html(score);
 	updateLife(LIFE_INCREMENT);
 	scoreStreak++;
+	$j(".scoreStreak").html(scoreStreak);
 	updateMultiplier();
 }
 
@@ -67,12 +68,9 @@ function resetMultiplier() {
 
 function resetStreak() {
 	scoreStreak = 0;
+	$j(".scoreStreak").html(scoreStreak);
 }
 
 function debugScoring() {
-	console.log("DEBUG SCORING:");
-	console.log("Score: " + score);
-	console.log("Life: " + life);
-	console.log("Multiplier: " + scoreMultiplier);
-	console.log("Streak: " + scoreStreak);
+	console.log("DEBUG SCORING: " + "Score: " + score + " | Life: " + life + " | Multiplier: " + scoreMultiplier + " | Streak: " + scoreStreak);
 }
