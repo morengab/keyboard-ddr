@@ -21,6 +21,7 @@ function scoreCorrectAnswer() {
 	$j(".points").html(score);
 	updateLife(LIFE_INCREMENT);
 	scoreStreak++;
+	$j(".scoreStreak").html(scoreStreak);
 	updateMultiplier();
 }
 
@@ -67,6 +68,7 @@ function resetMultiplier() {
 
 function resetStreak() {
 	scoreStreak = 0;
+	$j(".scoreStreak").html(scoreStreak);
 }
 
 function debugScoring() {
