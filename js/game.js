@@ -225,6 +225,12 @@ Game.prototype.runGame = function () {
 		gameloop = setInterval(function () {self.setLoop()}, beat * 4);
 }
 
+Game.prototype.speedUp = function () {
+		clearInterval(gameloop);
+		var self = this;
+		gameloop = setInterval(function () {self.setLoop()}, beat * 4);
+}
+
 Game.prototype.gameWon = function () {
 	
 		//game is over!
@@ -255,7 +261,12 @@ Game.prototype.runLoop = function (set_tuple, runCount) {
 		icon.setKeyMap();
 		icon.draw(set_tuple[runCount], height);
 		self.animate(icon);
+		
 	}, runCount * beat);
+	
+	if (runCount == 3) {
+			self.speedUp();
+	}
 }
 	
 //assign icons
@@ -293,7 +304,7 @@ Icon.prototype.setKeyMap = function () {
 			debugScoring();
 			el.superbanner();
 			if (scoreMultiplier > 1) {
-				beat = (60000/bpm) * (3 / scoreMultiplier); 
+				beat = (60000/bpm) * (3 / scoreMultiplier);
 			}
 			else {
 				beat = (60000/bpm) * 2;

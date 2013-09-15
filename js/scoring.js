@@ -12,7 +12,7 @@ var percentage = 100;
 // "Constants"
 var SCORE_INCREMENT = 100;
 var MULTIPLIER_INCREMENT = 5;
-var MAX_MULTIPLIER = 5;
+var MAX_MULTIPLIER = 50;
 
 var MAX_LIFE = 100;
 var LIFE_INCREMENT = 5;
