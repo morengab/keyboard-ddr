@@ -36,6 +36,11 @@ $j(document).ready(function () {
 		dataType: "json"
 	});
 	
+	$j('.program_option').click(function(event) {
+	    event.preventDefault();
+	    changeProgram($j(this).attr("data-app-name"));
+	  });
+	
 	
 	$j("#music").jPlayer({
 		ready: function () {
@@ -126,7 +131,7 @@ $j(document).ready(function () {
 
 		if (!$j(this).hasClass("active") && userSelected.length < 4) {
 			userSelected[currentIcon] = $j(this).attr("data-id");			
-			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-name") + " (" + $j(this).attr("data-shortcut") + ")</li>");
+			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\" class=\"active-selection\">"+ $j(this).attr("data-name") + " (" + $j(this).attr("data-shortcut") + ")</li>");
 			$j(this).addClass("active");
 			currentIcon++;	
 		} else if ($j(this).hasClass("active")) {
@@ -152,6 +157,25 @@ Array.prototype.remove = function() {
     return this;
 };
 	
+function changeProgram(program) {
+	$j.ajax({
+		url: "getShortcuts.php",
+		data: {app_name: program},
+		success: function (response) {
+			selectedIcons = response;
+			userSelected = [];
+			currentIcon = 0;
+			$j(".icon_selector").remove();
+			$j(".active-selection").remove();
+			$j("#application-name").html(program);
+			$j('#application-logo').attr("src", "icons/" + program + ".png");
+			$j.each(selectedIcons, function(i, item) {
+				$j("#icon_holder").append("<div class=\"icon_selector\" id=\"icon-" + i + "\" data-id=\"" + i + "\" data-shortcut=\"" + item.shortcut + "\" data-name=\"" + item.name + "\" style=\"background:url('" + item.image + "') top left no-repeat transparent; background-size: 75px 75px;\"></div>");	
+			})
+		},
+		dataType: "json"
+	});
+}
 
 function Game() {
 	//parameters
