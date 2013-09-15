@@ -16,6 +16,7 @@ var MAX_MULTIPLIER = 5;
 
 var MAX_LIFE = 100;
 var LIFE_INCREMENT = 5;
+var LIFE_DECREMENT = 10;
 
 // Scoring functions
 
@@ -38,8 +39,8 @@ function scoreCorrectAnswer() {
 }
 
 // incorrect answer? take away life, reset streak, reset multiplier		
-function scoreWrongAnswer() {
-	updateLife(-LIFE_INCREMENT);
+function scoreWrongAnswer(damage) {
+	updateLife(-LIFE_DECREMENT + damage);
 	resetMultiplier();
 	resetStreak();
 	

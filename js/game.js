@@ -182,8 +182,13 @@ Game.prototype.animate = function(current) {
 				}
 				else if (parseInt(pos.top) <= -50 && self.state != 2)
 				{
+					var multiplier = 0;
 					// missed!
-					scoreWrongAnswer();
+					if (life > 60)
+					{
+						multiplier = (life % 60) / 2;
+					}
+					scoreWrongAnswer(-multiplier);
 					self.state = 2;
 					if (isGameOver()){
 						game.endGame();
@@ -287,6 +292,12 @@ Icon.prototype.setKeyMap = function () {
 			scoreCorrectAnswer();
 			debugScoring();
 			el.superbanner();
+			if (scoreMultiplier > 1) {
+				beat = (60000/bpm) * (3 / scoreMultiplier); 
+			}
+			else {
+				beat = (60000/bpm) * 2;
+			}
 		}
 	});	
 
