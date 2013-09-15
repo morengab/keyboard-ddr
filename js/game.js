@@ -47,7 +47,7 @@ $j(document).ready(function () {
 		$j.modal.close();
 		resetScoring();
 		$j("#music").jPlayer("play", 0);
-		console.log($j("#icon-" + userSelected[0]);
+
 		$j("#col1-board .icon-background").css("background", $j("#icon-" + userSelected[1]).css("background"));
 		$j("#col2-board .icon-background").css("background", $j("#icon-" + userSelected[1]).css("background"));
 		$j("#col3-board .icon-background").css("background", $j("#icon-" + userSelected[2]).css("background"));
