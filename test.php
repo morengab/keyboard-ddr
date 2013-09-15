@@ -74,7 +74,7 @@ $database = new medoo('macadamia_cluster');
 								data-id="<?php echo $result['id']; ?>"
 								data-shortcut="<?php echo $result['shortcut']; ?>"
 								data-name="<?php echo $result['name']; ?>"
-								style="background:url('<?php echo $result['image']; ?>') top left no-repeat transparent; background-size: 75px 75px;">	
+								style="background-image:url('<?php echo $result['image']; ?>');">	
 							</div>
 							
 							<?php

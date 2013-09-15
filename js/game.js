@@ -4,7 +4,7 @@ var bpm = 134;
 var speed = (1000/(bpm/60))*10;
 var height = 800;
 var width = 180;
-var beat = (60000/bpm);
+var beat = (60000/bpm) * 2;
 var started = false;
 var gameloop;
 var tupleloop = [];
