@@ -74,15 +74,15 @@ $j(document).ready(function () {
 
 	//create keyboard mapping
 	$j("#new-game").click(function () {
-			userSelected = [];
-			$j('#my-modal').trigger('reveal:open');
-			game.endGame();
-			$j(".icon").remove();
-			resetScoring();
-			$j("#lifebar").css("background", "rgba(13, 33, 54, 1.0)");
-			$j("#gameOver").remove();
-			$j("#music").jPlayer("stop");
-			started = false;
+		userSelected = [];
+		$j('#my-modal').trigger('reveal:open');
+		game.endGame();
+		$j(".icon").remove();
+		resetScoring();
+		$j("#lifebar").css("background", "rgba(13, 33, 54, 1.0)");
+		$j("#gameOver").remove();
+		$j("#music").jPlayer("stop");
+		started = false;
 
 	});
 	
