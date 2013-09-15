@@ -24,8 +24,6 @@ $j(document).ready(function () {
 
 	$j('#my-modal').trigger('reveal:open');
 
-	$j("#my-modal").append("<span class='points' id=\"gameOver\"style=\"\"><center><b>GAME OVER</b><center></span>");
-
 	//create game objects
 	//selectedIcons = $j.get("getShortcuts.php", { app_name: "Photoshop" }, {} ,  );
 	
@@ -189,7 +187,8 @@ Game.prototype.animate = function(current) {
 						game.endGame();
 						$j(".icon").remove();
 						$j("#lifebar").css("background", "#5f2136");
-						$j("#board").append("<span class='points' id=\"gameOver\"style=\"margin-top:400px; font-size: 5em; color:white;\"><center><b>GAME OVER</b><center></span>");
+						// $j("#board").append("<span class='points' id=\"gameOver\"style=\"margin-top:400px; font-size: 5em; color:white;\"><center><b>GAME OVER</b><center></span>");
+						$j("#board").append("<div class='points' id=\"gameOver\"style=\"\"></div>");	
 						$j("#music").jPlayer("stop");
 						started = false;
 					}
