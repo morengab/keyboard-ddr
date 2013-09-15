@@ -44,7 +44,18 @@ $j(document).ready(function () {
 			});
 			},
 		swfPath: "js",
-		loop: true,
+		loop: false,
+		repeat: function(event) {
+			if (event.jPlayer.options.loop)
+			{
+				
+			} else {
+				$j(this).unbind(".jPlayerRepeat");
+				if (started){
+					game.gameWon();
+				}
+			}
+		},
 		supplied: "mp3",
 	});
 
@@ -205,6 +216,12 @@ Game.prototype.endGame = function () {
 Game.prototype.runGame = function () {
 		var self = this;
 		gameloop = setInterval(function () {self.setLoop()}, beat * 4);
+}
+
+Game.prototype.gameWon = function () {
+	
+		//game is over!
+	
 }
 
 Game.prototype.setLoop = function (i) {
