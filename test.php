@@ -53,9 +53,9 @@ $database = new medoo('macadamia_cluster');
 				</div>
 				<div id="my-modal" class="reveal-modal">
 					<div id="modal_container">
-						<h2>Select the tools you would like to train.</h2>
+						<h2>Select the 4 tools you would like to train on.</h2>
 						<div id="program_selector">
-							Photoshack
+							Photoshop
 						</div>
 						<div id="icon_holder">
 							<?php
@@ -65,47 +65,25 @@ $database = new medoo('macadamia_cluster');
 							
 							foreach ($results as $result) :
 							?>
-							<div class="icon_selector" id="icon-<?php echo $result['id']; ?>" data-id="<?php echo $result['id']; ?>" style="background:url('<?php echo $result['image']; ?>') top left no-repeat transparent; background-size: 75px 75px;">	
+							<div 
+								class="icon_selector"
+								id="icon-<?php echo $result['id']; ?>" 
+								data-id="<?php echo $result['id']; ?>"
+								data-shortcut="<?php echo $result['shortcut']; ?>"
+								data-name="<?php echo $result['name']; ?>"
+								style="background:url('<?php echo $result['image']; ?>') top left no-repeat transparent; background-size: 75px 75px;">	
 							</div>
 							
 							<?php
 							endforeach;
-							
 							?>
-						<!--
-
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
-							<div class="icon_selector">	
-							</div>
--->
 						</div>
+						
+						
+						<ul class="active-selections">
+							Currently selected tools:
+						</ul>
+
 						<button class="button" id="start">Start</button>
 					</div>
 					

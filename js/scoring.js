@@ -15,24 +15,26 @@ var MULTIPLIER_INCREMENT = 5;
 var MAX_MULTIPLIER = 5;
 
 var MAX_LIFE = 100;
-var LIFE_INCREMENT = 4;
+var LIFE_INCREMENT = 5;
 
 // Scoring functions
 
 // correct answer? add to score, add to streak, add to multiplier, add life
 function scoreCorrectAnswer() {
-	score += SCORE_INCREMENT * scoreMultiplier;
-	$j(".points").html(score);
+	if (!isGameOver()) {
+		score += SCORE_INCREMENT * scoreMultiplier;
+		$j(".points").html(score);
 	
-	updateLife(LIFE_INCREMENT);
+		updateLife(LIFE_INCREMENT);
 	
-	scoreStreak++;
-	$j(".scoreStreak").html(scoreStreak);
+		scoreStreak++;
+		$j(".scoreStreak").html(scoreStreak);
 	
-	updateMultiplier();
+		updateMultiplier();
 	
-	numCorrect++;
-	updatePercentage();
+		numCorrect++;
+		updatePercentage();
+	}
 }
 
 // incorrect answer? take away life, reset streak, reset multiplier		
@@ -49,6 +51,8 @@ function updateLife(amount) {
 	var newLife = life + amount;
 	life = (newLife > MAX_LIFE) ? MAX_LIFE : newLife;
 	$j("#lifebar-scale").css("width", life + "%")
+
+	$j("#lifebar").css("background", "rgba("+(100-(life/2))+", 33, 54, 1.0)");
 }
 
 function isGameOver() {
@@ -72,7 +76,7 @@ function resetScoring() {
 	resetMultiplier();
 	resetStreak();
 	resetPercentage();
-	updateLife(MAX_LIFE);	
+	updateLife(Infinity);	
 }
 
 function resetScore() {

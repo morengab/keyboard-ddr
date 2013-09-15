@@ -1,9 +1,10 @@
 $j = jQuery.noConflict();
 jQuery.fx.interval = 5;
-var speed = 4000;
+var bpm = 134;
+var speed = (1000/(bpm/60))*8;
 var height = 800;
 var width = 180;
-var beat = 1000;
+var beat = (60000/bpm);
 var started = false;
 var gameloop;
 var tupleloop = [];
@@ -39,7 +40,7 @@ $j(document).ready(function () {
 	$j("#music").jPlayer({
 		ready: function () {
 			$j(this).jPlayer("setMedia", {
-				mp3: "media/eple.mp3"
+				mp3: "media/magicposition.mp3"
 			});
 			},
 		swfPath: "js",
@@ -54,6 +55,8 @@ $j(document).ready(function () {
 		{
 		$j("#my-modal").trigger('reveal:close');
 		resetScoring();
+		$j("#lifebar").css("background", "rgba(13, 33, 54, 1.0)");
+		$j("#gameOver").remove();
 		$j("#music").jPlayer("play", 0);
 
 		$j("#col1-board .icon-background").css("background-image", "url('" + selectedIcons[userSelected[0]].image + "')" );
@@ -72,13 +75,22 @@ $j(document).ready(function () {
 
 	//create keyboard mapping
 	$j("#new-game").click(function () {
-			userSelected = [];
-			$j('#my-modal').trigger('reveal:open');
-			game.endGame();
-			$j(".icon").remove();
-			resetScoring();
-			$j("#music").jPlayer("stop");
-			started = false;
+		//userSelected = [];
+		
+		$j('#my-modal').reveal({
+	    	animation: 'fade',                   //fade, fadeAndPop, none
+	    	animationspeed: 300,                       //how fast animtions are
+	    	closeonbackgroundclick: false
+	    });
+		$j('#my-modal').trigger('reveal:open');
+		
+		game.endGame();
+		$j(".icon").remove();
+		resetScoring();
+		$j("#lifebar").css("background", "rgba(13, 33, 54, 1.0)");
+		$j("#gameOver").remove();
+		$j("#music").jPlayer("stop");
+		started = false;
 
 	});
 	
@@ -90,7 +102,8 @@ $j(document).ready(function () {
 			game.endGame();
 			$j(".icon").remove();
 			resetScoring();
-			
+			$j("#lifebar").css("background", "rgba(13, 33, 54, 1.0)");
+			$j("#gameOver").remove();
 			game = new Game();
 			game.runGame();
 			$j("#music").jPlayer("play", 0);
@@ -101,11 +114,14 @@ $j(document).ready(function () {
 	$j("#icon_holder").on("click", ".icon_selector", function () {
 		console.log(this);
 		if (!$j(this).hasClass("active") && userSelected.length < 4) {
-			userSelected[currentIcon] = $j(this).attr("data-id");
+			userSelected[currentIcon] = $j(this).attr("data-id");			
+			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-name") + " (" + $j(this).attr("data-shortcut") + ")</li>");
 			$j(this).addClass("active");
 			currentIcon++;	
 		} else if ($j(this).hasClass("active")) {
 			$j(this).removeClass("active");
+			$j("#" + $j(this).attr("data-id")).remove();
+			
 			userSelected.remove($j(this).attr("data-id"));
 			currentIcon--;
 		}
@@ -156,7 +172,14 @@ Game.prototype.animate = function(current) {
 					// missed!
 					scoreWrongAnswer();
 					self.state = 2;
-					debugScoring();
+					if (isGameOver()){
+						game.endGame();
+						$j(".icon").remove();
+						$j("#lifebar").css("background", "#5f2136");
+						$j("#board").append("<span class='points' id=\"gameOver\"style=\"margin-top:400px; font-size: 5em; color:white;\"><center><b>GAME OVER</b><center></span>");
+						$j("#music").jPlayer("stop");
+						started = false;
+					}
 				}
 			
 			}	
