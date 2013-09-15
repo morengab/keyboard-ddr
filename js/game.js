@@ -28,6 +28,7 @@ $j(document).ready(function () {
 	$j("#new-game").click(function () {
 		if (started == false)
 	{
+		$j.modal($j("#my-modal"));
 		resetScoring();
 			$j("#music").jPlayer("play", 0);
 			game = new Game();

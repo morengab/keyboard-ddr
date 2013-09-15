@@ -49,7 +49,7 @@
 				</div>
 				<div id="my-modal" style="display:none;">
 					
-					heyyy
+					<h1>heyyy</h1>
 				</div>
 			</div>
 
