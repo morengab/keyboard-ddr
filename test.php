@@ -48,8 +48,46 @@
 					<button class="button" id="reset">Reset</button>
 				</div>
 				<div id="my-modal" style="display:none;">
+					<div id="modal_container">
+						<div id="program_selector">
+							Photoshack
+						</div>
+						<div id="icon_holder">
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+							<div class="icon_selector">	
+							</div>
+						</div>
+					</div>
 					
-					<h1>heyyy</h1>
 				</div>
 			</div>
 
