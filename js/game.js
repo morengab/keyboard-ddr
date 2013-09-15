@@ -106,11 +106,14 @@ $j(document).ready(function () {
 	$j("#icon_holder").on("click", ".icon_selector", function () {
 		console.log(this);
 		if (!$j(this).hasClass("active") && userSelected.length < 4) {
-			userSelected[currentIcon] = $j(this).attr("data-id");
+			userSelected[currentIcon] = $j(this).attr("data-id");			
+			$j(".active-selections").append("<li id=\"" + $j(this).attr("data-id") + "\">"+ $j(this).attr("data-app-name") + ": " + $j(this).attr("data-name") + "</li>");
 			$j(this).addClass("active");
 			currentIcon++;	
 		} else if ($j(this).hasClass("active")) {
 			$j(this).removeClass("active");
+			$j("#" + $j(this).attr("data-id")).remove();
+			
 			userSelected.remove($j(this).attr("data-id"));
 			currentIcon--;
 		}
