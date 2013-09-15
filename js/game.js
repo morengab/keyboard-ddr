@@ -10,6 +10,7 @@ var tupleloop = [];
 var game;
 var selectedIcons;
 var userSelected = [1,2,3,5];
+var currentIcon = 0;
 
 $j(document).ready(function () {
 	
@@ -81,7 +82,29 @@ $j(document).ready(function () {
 			started = true;
 
 	});
+	
+	$j("#icon_holder").on("click", ".icon_selector", function () {
+		
+		if (!$j(this).hasClass("active") && userSelected.length < 4) {
+			userSelected[currentIcon] = $j(this).attr("data-id");
+			currentIcon++;	
+		} else {
+			userSelected.remove($j(this).attr("data-id"));
+			currentIcon--;
+		}
+	});
 });
+
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
 	
 
 function Game() {
