@@ -5,6 +5,10 @@ var scoreStreak = 0;
 
 var life = 100;
 
+var numCorrect = 0;
+var numWrong = 0;
+var percentage = 100;
+
 // "Constants"
 var SCORE_INCREMENT = 100;
 var MULTIPLIER_INCREMENT = 5;
@@ -19,10 +23,16 @@ var LIFE_INCREMENT = 4;
 function scoreCorrectAnswer() {
 	score += SCORE_INCREMENT * scoreMultiplier;
 	$j(".points").html(score);
+	
 	updateLife(LIFE_INCREMENT);
+	
 	scoreStreak++;
 	$j(".scoreStreak").html(scoreStreak);
+	
 	updateMultiplier();
+	
+	numCorrect++;
+	updatePercentage();
 }
 
 // incorrect answer? take away life, reset streak, reset multiplier		
@@ -30,6 +40,9 @@ function scoreWrongAnswer() {
 	updateLife(-LIFE_INCREMENT);
 	resetMultiplier();
 	resetStreak();
+	
+	numWrong++;
+	updatePercentage();
 }
 
 function updateLife(amount) {
@@ -40,6 +53,11 @@ function updateLife(amount) {
 
 function isGameOver() {
 	return life <= 0;
+}
+
+function updatePercentage() {
+	percentage = Math.round((numCorrect / (numCorrect + numWrong)) * 100);
+	$j(".percentage").html(percentage);
 }
 
 function updateMultiplier(){
@@ -53,6 +71,7 @@ function resetScoring() {
 	resetScore();
 	resetMultiplier();
 	resetStreak();
+	resetPercentage();
 	updateLife(MAX_LIFE);	
 }
 
@@ -71,6 +90,13 @@ function resetStreak() {
 	$j(".scoreStreak").html(scoreStreak);
 }
 
+function resetPercentage() {
+	numCorrect = 0;
+	numWrong = 0;
+	percentage = 0;
+	$j(".percentage").html(percentage);
+}
+
 function debugScoring() {
-	console.log("DEBUG SCORING: " + "Score: " + score + " | Life: " + life + " | Multiplier: " + scoreMultiplier + " | Streak: " + scoreStreak);
+	console.log("DEBUG SCORING: " + "Score: " + score + " | Life: " + life + " | Multiplier: " + scoreMultiplier + " | Streak: " + scoreStreak + " | Percentage: " + percentage);
 }

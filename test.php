@@ -41,7 +41,7 @@ $database = new medoo('macadamia_cluster');
 						<span class="points">0</span> points
 					</div>
 					<div>
-						<span class="scoreStreak">0</span> in a row | <span class="scoreMultiplier">1</span>x multiplier
+						<span class="scoreStreak">0</span> in a row | <span class="scoreMultiplier">1</span>x multiplier | <span class="percentage">0</span>% correct 
 					</div>
 				</div>
 				<div class="current-software" id="buttons">
@@ -53,6 +53,7 @@ $database = new medoo('macadamia_cluster');
 				</div>
 				<div id="my-modal" style="display:none;">
 					<div id="modal_container">
+						<h2>Select the tools you would like to train.</h2>
 						<div id="program_selector">
 							Photoshack
 						</div>
